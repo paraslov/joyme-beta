@@ -1,6 +1,6 @@
 import {someFn} from "./test";
-const text = someFn(5)
+const text = someFn(13)
 document.getElementById('root').innerHTML = `
-    <div>${text}</div> 
+    <div>${text}, yaeh</div> 
   `
 
