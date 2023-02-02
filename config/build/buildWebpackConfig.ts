@@ -18,7 +18,7 @@ export function buildWebpackConfig(options: BuildOptions): Configuration {
     },
     module: {
       // file compilers that not .js
-      rules: buildLoaders(),
+      rules: buildLoaders(isDev),
     },
     resolve: buildResolver(),
     plugins: buildPlugins(paths),

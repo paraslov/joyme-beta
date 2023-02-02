@@ -1,10 +1,10 @@
 import { render } from 'react-dom'
-import Counter from './components/Counter'
+import App from './App'
+import './App.scss'
 
 render(
   <div>
-    My react app
-    <Counter />
+    <App />
   </div>,
   document.getElementById('root')
 )
