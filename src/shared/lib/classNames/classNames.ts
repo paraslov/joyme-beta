@@ -4,6 +4,6 @@ export const classNames = (main: string, add: string[], conditional: Conditional
   return [
     main,
     ...add,
-    ...Object.entries(conditional).filter(([cls, val]) => val).map(([cls, val]) => cls)
+    ...Object.entries(conditional).filter(([cls, val]) => val).map(([cls]) => cls)
   ].join(' ')
 }
