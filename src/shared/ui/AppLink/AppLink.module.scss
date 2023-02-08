@@ -1,0 +1,18 @@
+.appLink {
+  padding: 4px;
+  margin: 0 2px;
+  text-decoration: none;
+}
+
+.primary {
+  color: var(--primary-color);
+}
+
+.secondary {
+  color: var(--secondary-color)
+}
+
+.primaryOutline {
+  @extend .primary;
+  border: 1px solid var(--inverted-bg-color);
+}
