@@ -5,12 +5,11 @@ import { Router } from './providers/router'
 import { Navbar } from 'widget/Navbar'
 
 const App = () => {
-  const { theme, toggleTheme } = useTheme();
+  const { theme } = useTheme();
 
   return (
     <div className={classNames('app', [theme])}>
       <Navbar />
-      <button onClick={toggleTheme}>switch theme</button>
       <Router />
     </div>
   )

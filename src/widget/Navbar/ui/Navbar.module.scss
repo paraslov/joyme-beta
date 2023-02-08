@@ -3,6 +3,16 @@
   height: var(--navbar-height);
   border-bottom: 1px solid var(--inverted-bg-color);
   display: flex;
+  align-items: center;
+}
+
+.themeToggler {
+  margin-left: 16px;
+}
+
+.links {
+  width: 100%;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
