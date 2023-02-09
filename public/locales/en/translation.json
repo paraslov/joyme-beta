@@ -1,0 +1,10 @@
+{
+  "language": "EN",
+  "topBar": {
+    "main": "Main",
+    "about": "About"
+  },
+  "common": {
+    "loader": "Loading..."
+  }
+}

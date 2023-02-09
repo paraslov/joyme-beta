@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { useTheme } from 'app/providers/ThemeProvider'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Router } from './providers/router'
@@ -10,11 +10,14 @@ const App = () => {
 
   return (
     <div className={classNames('app', [theme])}>
-      <Navbar />
-      <div className={'content-page'}>
-        <Sidebar />
-        <Router />
-      </div>
+      <Suspense fallback={""}>
+        <Navbar />
+
+        <div className={'content-page'}>
+          <Sidebar />
+          <Router />
+        </div>
+      </Suspense>
     </div>
   )
 }
