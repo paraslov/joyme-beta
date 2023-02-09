@@ -6,7 +6,18 @@ const Router = () => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Routes>
-        {routeConfig.map((route) => <Route key={route.path} path={route.path} element={route.element} />)}
+        {
+            routeConfig.map((route) =>
+              <Route
+                key={route.path}
+                path={route.path}
+                element={
+                  <div className={'page-wrapper'}>
+                    {route.element}
+                  </div>
+                }
+              />)
+        }
       </Routes>
     </Suspense>
   )
