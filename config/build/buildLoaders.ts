@@ -28,6 +28,17 @@ export function buildLoaders(isDev: boolean): RuleSetRule[] {
       exclude: /node_modules/,
     }
 
+    const babelLoader = {
+      test: /\.(js|jsx|ts|tsx)$/,
+      exclude: /node_modules/,
+      use: {
+        loader: "babel-loader",
+        options: {
+          presets: ['@babel/preset-env']
+        }
+      }
+    }
+
     const svgLoader = {
       test: /\.svg$/,
       use: ['@svgr/webpack'],
@@ -43,9 +54,10 @@ export function buildLoaders(isDev: boolean): RuleSetRule[] {
     }
 
   return [
+    fileLoader,
+    svgLoader,
+    babelLoader,
     tsLoader,
     scssLoader,
-    svgLoader,
-    fileLoader,
   ]
 }
