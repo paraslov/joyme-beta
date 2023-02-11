@@ -11,16 +11,20 @@ interface ThemeTogglerProps {
   className?: string
 }
 
-export const ThemeSwitcher: React.FC<ThemeTogglerProps> = ({className}) => {
-  const { theme, toggleTheme } = useTheme();
+export const ThemeSwitcher: React.FC<ThemeTogglerProps> = ({ className }) => {
+  const { theme, toggleTheme } = useTheme()
 
   return (
-    <div className={classNames(s.themeToggler, [className])}>
+    <div className={ classNames(s.themeToggler, [ className ]) }>
       <Button
-        onClick={toggleTheme}
-        theme={ButtonTheme.CLEAR}
+        onClick={ toggleTheme }
+        theme={ ButtonTheme.CLEAR }
       >
-        {theme === Theme.DARK ? <LightIcon width={30} height={30} /> : <DarkIcon width={30} height={30} />}
+        {
+          theme === Theme.DARK
+            ? <LightIcon width={ 30 } height={ 30 }/>
+            : <DarkIcon width={ 30 } height={ 30 }/>
+        }
       </Button>
     </div>
   )

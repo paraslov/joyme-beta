@@ -6,7 +6,7 @@ export const AboutPage = () => {
 
   return (
     <div>
-      {t('title')}
+      { t('title') }
     </div>
   )
 }

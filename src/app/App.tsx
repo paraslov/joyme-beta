@@ -6,16 +6,16 @@ import { Navbar } from 'widget/Navbar'
 import { Sidebar } from 'widget/Sidebar'
 
 const App = () => {
-  const { theme } = useTheme();
+  const { theme } = useTheme()
 
   return (
-    <div className={classNames('app', [theme])}>
-      <Suspense fallback={""}>
-        <Navbar />
+    <div className={ classNames('app', [ theme ]) }>
+      <Suspense fallback={ '' }>
+        <Navbar/>
 
-        <div className={'content-page'}>
-          <Sidebar />
-          <Router />
+        <div className={ 'content-page' }>
+          <Sidebar/>
+          <Router/>
         </div>
       </Suspense>
     </div>

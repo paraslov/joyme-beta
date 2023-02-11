@@ -7,19 +7,19 @@ const Router = () => {
   const { t } = useTranslation()
 
   return (
-    <Suspense fallback={<div>{ t('common.loader') }</div>}>
+    <Suspense fallback={ <div>{ t('common.loader') }</div> }>
       <Routes>
         {
-            routeConfig.map((route) =>
-              <Route
-                key={route.path}
-                path={route.path}
-                element={
-                  <div className={'page-wrapper'}>
-                    {route.element}
-                  </div>
-                }
-              />)
+          routeConfig.map((route) =>
+            <Route
+              key={ route.path }
+              path={ route.path }
+              element={
+                <div className={ 'page-wrapper' }>
+                  { route.element }
+                </div>
+              }
+            />)
         }
       </Routes>
     </Suspense>
