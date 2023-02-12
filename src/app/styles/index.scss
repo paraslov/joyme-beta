@@ -1,19 +1,17 @@
 @import "reset";
-@import "variables/global";
-@import "themes/light";
-@import "themes/dark";
+@import "./variables/global";
+@import "./themes/light";
+@import "./themes/dark";
 
 @font-face {
-  font-family: 'Agency';
-  src: local('Agency'), url(../../assets/fonts/mainFont.ttf) format('truetype');
+  font-family: Agency;
+  src: local("Agency"), url("../../assets/fonts/mainFont.ttf") format("truetype");
 }
 
 .app {
   font: var(--font-m);
-
   background: var(--bg-color);
   color: var(--primary-color);
-
   min-height: 100vh;
 }
 

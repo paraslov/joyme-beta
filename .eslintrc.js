@@ -7,7 +7,8 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
-    'plugin:@typescript-eslint/recommended'
+    'plugin:@typescript-eslint/recommended',
+    'plugin:i18next/recommended'
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -16,7 +17,8 @@ module.exports = {
   },
   plugins: [
     'react',
-    '@typescript-eslint'
+    '@typescript-eslint',
+    'i18next'
   ],
   rules: {
     'max-len': [ 1, { 'code': 120, 'ignoreComments': true } ],
@@ -31,6 +33,8 @@ module.exports = {
     'object-curly-spacing': [ 1, 'always' ],
     'array-bracket-spacing': [ 1, 'always' ],
     'no-undef': 2,
+    'no-trailing-spaces': 1,
+    'i18next/no-literal-string': [ 2, { markupOnly: true } ]
   },
   globals: {
     '$_IS_DEV': true,

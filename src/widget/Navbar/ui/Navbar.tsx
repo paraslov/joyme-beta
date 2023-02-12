@@ -4,6 +4,7 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink'
 import { ThemeSwitcher } from 'widget/ThemeSwitcher'
 import { useTranslation } from 'react-i18next'
+import { RoutePath } from 'shared/config/routes/routes'
 
 interface NavbarProps {
   className?: string
@@ -16,8 +17,8 @@ export const Navbar: React.FC<NavbarProps> = ({ className }) => {
       <ThemeSwitcher className={ s.themeToggler } />
 
       <div className={ s.links }>
-        <AppLink theme={ AppLinkTheme.PRIMARY } to={ '/' }>{ t('topBar.main') }</AppLink>
-        <AppLink theme={ AppLinkTheme.PRIMARY } to={ '/about' }>{ t('topBar.about') }</AppLink>
+        <AppLink theme={ AppLinkTheme.PRIMARY } to={ RoutePath.main }>{ t('topBar.main') }</AppLink>
+        <AppLink theme={ AppLinkTheme.PRIMARY } to={ RoutePath.about }>{ t('topBar.about') }</AppLink>
       </div>
     </div>
   )
