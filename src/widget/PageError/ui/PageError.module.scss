@@ -1,0 +1,15 @@
+.pageError {
+  color: #b90000;
+  background: #070707;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.errorText {
+  font-size: 20px;
+  margin-bottom: 20px;
+}

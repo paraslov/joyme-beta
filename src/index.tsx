@@ -1,6 +1,7 @@
 import React from 'React'
 import { render } from 'react-dom'
 import App from './app/App'
+import { ErrorBoundary } from 'app/providers/ErrorBoundary/ErrorBoundary'
 import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider } from 'app/providers/ThemeProvider'
 
@@ -10,9 +11,11 @@ import './app/styles/index.scss'
 render(
   <div>
     <BrowserRouter>
-      <ThemeProvider>
-        <App />
-      </ThemeProvider>
+      <ErrorBoundary>
+        <ThemeProvider>
+          <App />
+        </ThemeProvider>
+      </ErrorBoundary>
     </BrowserRouter>
   </div>,
   document.getElementById('root')

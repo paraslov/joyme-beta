@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Button } from 'shared/ui/Button/Button'
+import { _BugButton } from 'app/providers/ErrorBoundary/_BugButton'
 import { LanguageSwitcher } from 'widget/LanguageSwitcher'
 
 import s from './Sidebar.module.scss'
@@ -19,6 +20,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ className }) => {
   return (
     <div className={ classNames(s.sidebar, [ className ], { [s.collapsed]: collapsed }) }>
       <Button onClick={ onToggleCollapsed }>|||</Button>
+      <_BugButton />
 
       <div className={ s.switchers }>
         <LanguageSwitcher />
