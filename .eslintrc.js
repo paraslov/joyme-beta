@@ -23,6 +23,7 @@ module.exports = {
   ],
   rules: {
     'max-len': [ 1, { 'code': 120, 'ignoreComments': true } ],
+    'react/react-in-jsx-scope': 'off',
     'react/jsx-indent': [ 2, 2, { 'indentLogicalExpressions': true } ],
     'react/jsx-props-no-spreading': 1,
     'react/jsx-curly-spacing': [ 1, { 'when': 'always', 'children': true } ],

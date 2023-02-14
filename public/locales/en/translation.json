@@ -5,6 +5,6 @@
     "about": "About"
   },
   "common": {
-    "loader": "Loading..."
+    "notFound": "...Page not found. It happens with the best of us."
   }
 }
