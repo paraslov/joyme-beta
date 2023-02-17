@@ -36,9 +36,17 @@ module.exports = {
     'array-bracket-spacing': [ 1, 'always' ],
     'no-undef': 2,
     'no-trailing-spaces': 1,
-    'i18next/no-literal-string': [ 2, { markupOnly: true } ]
+    'i18next/no-literal-string': [ 2, { markupOnly: true, ignoreAttribute: [ 'data-testid' ] } ]
   },
   globals: {
     '$_IS_DEV': true,
-  }
+  },
+  overrides: [
+    {
+      files: [ '**/src/**/*.test.{ts,tsx}' ],
+      rules: {
+        'i18next/no-literal-string': 'off'
+      }
+    }
+  ]
 }
