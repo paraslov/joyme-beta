@@ -1,7 +1,7 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 
-const NotFound = () => {
+const NotFound = (props: any) => {
   const { t } = useTranslation()
 
   return (
