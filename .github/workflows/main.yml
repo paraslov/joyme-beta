@@ -1,4 +1,4 @@
-name: testing
+name: build, lint, unit, ui
 run-name: test
 on:
   push:
@@ -22,9 +22,13 @@ jobs:
         run: npm install
       - name: build production project
         run: npm run build:prod
-      - name: linting typescript
+      - name: lint typescript
         run: npm run lint:ts
-      - name: linting scss
+      - name: lint scss
         run: npm run lint:scss
-      - name: unit testing
+      - name: unit tests
         run: npm run test:unit
+      - name: build storybook
+        run: npm run sb:build
+      - name: screenshot tests
+        run: npm run test:ui:ci
