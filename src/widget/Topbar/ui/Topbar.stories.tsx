@@ -2,17 +2,17 @@ import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { Theme } from 'app/providers/ThemeProvider'
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator'
-import { Navbar } from './Navbar'
+import { Topbar } from './Topbar'
 
 export default {
-  title: 'widget/Navbar',
-  component: Navbar,
+  title: 'widget/Topbar',
+  component: Topbar,
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof Navbar>
+} as ComponentMeta<typeof Topbar>
 
-const Template: ComponentStory<typeof Navbar> = (args) => <Navbar { ...args } />
+const Template: ComponentStory<typeof Topbar> = (args) => <Topbar { ...args } />
 
 export const Dark = Template.bind({})
 Dark.args = {}

@@ -1,4 +1,4 @@
-.navbar {
+.topbar {
   width: 100%;
   height: var(--navbar-height);
   border-bottom: 1px solid var(--inverted-bg-color);
@@ -10,7 +10,7 @@
   margin-left: 16px;
 }
 
-.links {
+.appName {
   width: 100%;
   display: flex;
   justify-content: center;

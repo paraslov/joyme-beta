@@ -1,7 +1,7 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { Button, ButtonTheme } from './Button'
+import { Button, ButtonSize, ButtonTheme } from './Button'
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator'
 import { Theme } from 'app/providers/ThemeProvider'
 
@@ -36,6 +36,27 @@ Outline.args = {
   children: 'Button',
 }
 
+export const OutlineM = Template.bind({})
+OutlineM.args = {
+  theme: ButtonTheme.OUTLINE,
+  children: 'Button',
+  size: ButtonSize.M,
+}
+
+export const OutlineL = Template.bind({})
+OutlineL.args = {
+  theme: ButtonTheme.OUTLINE,
+  children: 'Button',
+  size: ButtonSize.L,
+}
+
+export const OutlineXL = Template.bind({})
+OutlineXL.args = {
+  theme: ButtonTheme.OUTLINE,
+  children: 'Button',
+  size: ButtonSize.XL,
+}
+
 export const OutlineLight = Template.bind({})
 OutlineLight.args = {
   theme: ButtonTheme.OUTLINE,
@@ -43,3 +64,37 @@ OutlineLight.args = {
 }
 
 OutlineLight.decorators = [ ThemeDecorator(Theme.LIGHT) ]
+
+export const OutlineSquareM = Template.bind({})
+OutlineSquareM.args = {
+  theme: ButtonTheme.OUTLINE,
+  square: true,
+  size: ButtonSize.M,
+  children: '<',
+}
+
+export const OutlineSquareL = Template.bind({})
+OutlineSquareL.args = {
+  theme: ButtonTheme.OUTLINE,
+  square: true,
+  size: ButtonSize.L,
+  children: '>',
+}
+
+export const OutlineSquareXL = Template.bind({})
+OutlineSquareXL.args = {
+  theme: ButtonTheme.OUTLINE,
+  square: true,
+  size: ButtonSize.XL,
+  children: '+',
+}
+
+export const OutlineSquareXLLight = Template.bind({})
+OutlineSquareXLLight.args = {
+  theme: ButtonTheme.OUTLINE,
+  square: true,
+  size: ButtonSize.XL,
+  children: '+',
+}
+
+OutlineSquareXLLight.decorators = [ ThemeDecorator(Theme.LIGHT) ]
