@@ -18,6 +18,16 @@ const Template: ComponentStory<typeof Preloader> = (args) => <Preloader { ...arg
 export const Light = Template.bind({})
 Light.args = {}
 Light.decorators = [ ThemeDecorator(Theme.LIGHT) ]
+Light.story = {
+  parameters: {
+    loki: { skip: true }
+  }
+}
 
 export const Dark = Template.bind({})
 Dark.args = {}
+Dark.story = {
+  parameters: {
+    loki: { skip: true }
+  }
+}

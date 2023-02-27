@@ -1,0 +1,34 @@
+name: build, lint, unit, ui
+run-name: test
+on:
+  push:
+    branches: '**'
+  pull_request:
+    branches: 'master'
+jobs:
+  Pipeline:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 17.x ]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Starting Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: install modules
+        run: npm install
+      - name: build production project
+        run: npm run build:prod
+      - name: lint typescript
+        run: npm run lint:ts
+      - name: lint scss
+        run: npm run lint:scss
+      - name: unit tests
+        run: npm run test:unit
+      - name: build storybook
+        run: npm run sb:build
+      - name: screenshot tests
+        run: npm run test:ui:ci
