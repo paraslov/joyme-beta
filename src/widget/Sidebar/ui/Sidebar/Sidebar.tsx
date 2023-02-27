@@ -5,8 +5,8 @@ import { LanguageSwitcher } from 'widget/LanguageSwitcher'
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink'
 import { RoutePath } from 'shared/config/routes/routes'
 import { useTranslation } from 'react-i18next'
-import HomeIcon from 'shared/assets/icons/Home.svg'
-import AboutIcon from 'shared/assets/icons/About.svg'
+import HomeIcon from 'shared/assets/icons/home.svg'
+import AboutIcon from 'shared/assets/icons/about.svg'
 
 import s from './Sidebar.module.scss'
 
