@@ -10,13 +10,24 @@ export enum ButtonTheme {
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string
   theme?: ButtonTheme
+  square?: boolean
+  size?: ButtonSize
+}
+
+export enum ButtonSize {
+  M = 'size_m',
+  L = 'size_l',
+  XL = 'size_xl',
 }
 
 export const Button: React.FC<ButtonProps> = (props) => {
-  const { className, children, theme, ...otherProps } = props
+  const { className, children, square, theme, size, ...otherProps } = props
+
+  const addClass = [ s[theme], className, s[size] ]
+
   return (
     <button
-      className={ classNames(s.button, [ s[theme], className ]) }
+      className={ classNames(s.button, addClass, { [s.square]: square }) }
       { ...otherProps }
     >
       { children }

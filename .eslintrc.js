@@ -28,6 +28,7 @@ module.exports = {
     'react/jsx-indent': [ 2, 2, { 'indentLogicalExpressions': true } ],
     'react/jsx-props-no-spreading': 1,
     'react/jsx-curly-spacing': [ 1, { 'when': 'always', 'children': true } ],
+    '@typescript-eslint/no-var-requires': 1,
     'indent': [ 2, 2 ],
     'linebreak-style': [ 2, 'unix' ],
     'quotes': [ 2, 'single' ],
