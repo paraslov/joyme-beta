@@ -1,6 +1,9 @@
 {
-  "language": "EN",
-  "topBar": {
+  "language": "RU",
+  "topbar": {
+    "login": "Login"
+  },
+  "sidebar": {
     "main": "Main",
     "about": "About"
   },

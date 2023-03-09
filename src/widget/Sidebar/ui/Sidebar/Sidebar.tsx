@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
-import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button'
+import { Button, ButtonSize } from 'shared/ui/Button/Button'
 import { LanguageSwitcher } from 'widget/LanguageSwitcher'
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink'
 import { RoutePath } from 'shared/config/routes/routes'
@@ -32,8 +32,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ className }) => {
         data-testid="sidebar-toggle"
         onClick={ onToggleCollapsed }
         square
-        size={ ButtonSize.L }
-        theme={ ButtonTheme.OUTLINE }
+        size={ ButtonSize.XL }
       >
         { collapsed ? '>' : '<' }
       </Button>
@@ -41,11 +40,11 @@ export const Sidebar: React.FC<SidebarProps> = ({ className }) => {
       <div className={ s.links }>
         <AppLink className={ s.link } theme={ AppLinkTheme.PRIMARY } to={ RoutePath.main }>
           <HomeIcon className={ s.linkIcon } />
-          { !collapsed && t('topBar.main') }
+          { !collapsed && t('sidebar.main') }
         </AppLink>
         <AppLink className={ s.link } theme={ AppLinkTheme.PRIMARY } to={ RoutePath.about }>
           <AboutIcon className={ s.linkIcon } />
-          { !collapsed && t('topBar.about') }
+          { !collapsed && t('sidebar.about') }
         </AppLink>
       </div>
 

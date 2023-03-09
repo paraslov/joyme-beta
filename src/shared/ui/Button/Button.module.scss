@@ -2,6 +2,13 @@
   padding: 10px 15px;
 }
 
+.primary {
+  color: var(--primary-color);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 .clear {
   color: var(--primary-color);
   padding: 0;
