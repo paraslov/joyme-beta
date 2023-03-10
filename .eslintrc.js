@@ -19,7 +19,8 @@ module.exports = {
   plugins: [
     'react',
     '@typescript-eslint',
-    'i18next'
+    'i18next',
+    'react-hooks'
   ],
   rules: {
     'max-len': [ 1, { 'code': 120, 'ignoreComments': true } ],
@@ -28,6 +29,8 @@ module.exports = {
     'react/jsx-indent': [ 2, 2, { 'indentLogicalExpressions': true } ],
     'react/jsx-props-no-spreading': 1,
     'react/jsx-curly-spacing': [ 1, { 'when': 'always', 'children': true } ],
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'error',
     '@typescript-eslint/no-var-requires': 1,
     'indent': [ 2, 2 ],
     'linebreak-style': [ 2, 'unix' ],
@@ -45,7 +48,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: [ '**/src/**/*.test.{ts,tsx}' ],
+      files: [ '**/src/**/*.{test,stories}.{ts,tsx}' ],
       rules: {
         'i18next/no-literal-string': 'off'
       }

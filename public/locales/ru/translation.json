@@ -1,6 +1,9 @@
 {
-  "language": "RU",
-  "topBar": {
+  "language": "EN",
+  "topbar": {
+    "login": "Войти"
+  },
+  "sidebar": {
     "main": "Главная",
     "about": "О сайте"
   },

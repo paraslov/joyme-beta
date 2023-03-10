@@ -3,6 +3,7 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import s from './Button.module.scss'
 
 export enum ButtonTheme {
+  PRIMARY = 'primary',
   CLEAR = 'clear',
   OUTLINE = 'outline'
 }
@@ -21,7 +22,14 @@ export enum ButtonSize {
 }
 
 export const Button: React.FC<ButtonProps> = (props) => {
-  const { className, children, square, theme, size, ...otherProps } = props
+  const {
+    className,
+    children,
+    square,
+    theme = ButtonTheme.PRIMARY,
+    size,
+    ...otherProps
+  } = props
 
   const addClass = [ s[theme], className, s[size] ]
 
