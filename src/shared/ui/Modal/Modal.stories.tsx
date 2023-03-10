@@ -12,18 +12,16 @@ export default {
   },
 } as ComponentMeta<typeof Modal>
 
-const Template: ComponentStory<typeof Modal> = (args) => <Modal { ...args } />
+const Template: ComponentStory<typeof Modal> = (args) => <Modal { ...args }>Modal</Modal>
 
 export const Dark = Template.bind({})
 Dark.args = {
-  children: 'bolt',
   isOpen: true,
   storyMode: true,
 }
 
 export const Light = Template.bind({})
 Light.args = {
-  children: <div><div>div1</div><div>div2</div></div>,
   isOpen: true,
   storyMode: true,
 }
