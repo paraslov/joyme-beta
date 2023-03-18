@@ -13,5 +13,9 @@
   },
   "errors": {
     "pageError": "Sorry, we have an unhandled error!"
+  },
+  "counter": {
+    "increment": "increment",
+    "decrement": "decrement"
   }
 }
