@@ -3,6 +3,7 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import { Portal } from 'shared/ui/Portal/Portal'
 
 import s from './Modal.module.scss'
+import { useTheme } from 'app/providers/ThemeProvider'
 
 interface ModalProps {
   className?: string
@@ -24,6 +25,7 @@ export const Modal: React.FC<ModalProps> = (props) => {
   } = props
 
   const [ isClosing, setIsClosing ] = useState(false)
+  const { theme } = useTheme()
   const timerRef = useRef<ReturnType<typeof setTimeout>>()
 
   const onCloseHandler = useCallback(() => {
@@ -67,8 +69,6 @@ export const Modal: React.FC<ModalProps> = (props) => {
     [s.isClosing]: isClosing
   }
 
-  const app = document.getElementById('appId')
-
   if (storyMode) return (
     <div className={ classNames(s.modal, [ className ], conditionalClasses) }>
       <div className={ s.overlay } onClick={ onCloseHandler }>
@@ -81,19 +81,15 @@ export const Modal: React.FC<ModalProps> = (props) => {
 
   return (
     <div>
-      {
-        app
-          ? <Portal element={ app }>
-            <div className={ classNames(s.modal, [ className ], conditionalClasses) }>
-              <div className={ s.overlay } onClick={ onCloseHandler }>
-                <div className={ s.content } onClick={ onContentClick }>
-                  { children }
-                </div>
-              </div>
+      <Portal>
+        <div className={ classNames(s.modal, [ className, theme, 'app_modal' ], conditionalClasses) }>
+          <div className={ s.overlay } onClick={ onCloseHandler }>
+            <div className={ s.content } onClick={ onContentClick }>
+              { children }
             </div>
-          </Portal>
-          : <div/>
-      }
+          </div>
+        </div>
+      </Portal>
     </div>
   )
 }

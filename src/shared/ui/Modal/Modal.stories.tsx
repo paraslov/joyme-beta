@@ -10,6 +10,9 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
+  args: {
+    storyMode: true,
+  }
 } as ComponentMeta<typeof Modal>
 
 const Template: ComponentStory<typeof Modal> = (args) => <Modal { ...args }>Modal</Modal>
@@ -17,19 +20,11 @@ const Template: ComponentStory<typeof Modal> = (args) => <Modal { ...args }>Moda
 export const Dark = Template.bind({})
 Dark.args = {
   isOpen: true,
-  storyMode: true,
 }
 
 export const Light = Template.bind({})
 Light.args = {
   isOpen: true,
-  storyMode: true,
 }
 
 Light.decorators = [ ThemeDecorator(Theme.LIGHT) ]
-
-Light.story = {
-  parameters: {
-    loki: { skip: true }
-  }
-}
