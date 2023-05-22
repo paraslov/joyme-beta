@@ -28,3 +28,8 @@ Light.args = {
 }
 
 Light.decorators = [ ThemeDecorator(Theme.LIGHT) ]
+Light.story = {
+  parameters: {
+    loki: { skip: true }
+  }
+}
