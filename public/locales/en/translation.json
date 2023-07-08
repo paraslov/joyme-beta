@@ -1,5 +1,9 @@
 {
   "language": "RU",
+  "auth": {
+    "email": "Enter email",
+    "password": "Enter password"
+  },
   "topbar": {
     "login": "Login"
   },
@@ -9,7 +13,8 @@
   },
   "common": {
     "notFound": "...Page not found. It happens with the best of us",
-    "refreshPage": "Refresh page"
+    "refreshPage": "Refresh page",
+    "login": "LogIn"
   },
   "errors": {
     "pageError": "Sorry, we have an unhandled error!"
