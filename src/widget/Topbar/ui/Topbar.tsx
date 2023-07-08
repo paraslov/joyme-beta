@@ -2,10 +2,10 @@ import React, { useCallback, useState } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { ThemeSwitcher } from 'widget/ThemeSwitcher'
 import { useTranslation } from 'react-i18next'
+import { Button, ButtonSize } from 'shared/ui/Button/Button'
+import { LoginModal } from 'features/AuthByUsername'
 
 import s from './Topbar.module.scss'
-import { Modal } from 'shared/ui/Modal/Modal'
-import { Button, ButtonSize } from 'shared/ui/Button/Button'
 
 interface NavbarProps {
   className?: string
@@ -15,8 +15,12 @@ export const Topbar: React.FC<NavbarProps> = ({ className }) => {
   const { t } = useTranslation()
   const [ isOpen, setIsOpen ] = useState(false)
 
-  const toggleAuthModal = useCallback(() => {
-    setIsOpen(prevState => !prevState)
+  const openModal = useCallback(() => {
+    setIsOpen(true)
+  }, [])
+
+  const closeModal = useCallback(() => {
+    setIsOpen(false)
   }, [])
 
   return (
@@ -29,15 +33,12 @@ export const Topbar: React.FC<NavbarProps> = ({ className }) => {
 
       <Button
         size={ ButtonSize.M }
-        onClick={ toggleAuthModal }
+        onClick={ openModal }
       >
         { t('topbar.login') }
       </Button>
 
-      <Modal isOpen={ isOpen } onClose={ () => setIsOpen(false) }>
-        <div>{ t('bolt1') }</div>
-        <div>{ t('bolt2') }</div>
-      </Modal>
+      <LoginModal isOpen={ isOpen } onClose={ closeModal } />
     </div>
   )
 }
