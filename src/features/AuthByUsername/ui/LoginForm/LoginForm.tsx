@@ -1,5 +1,5 @@
 import React, { memo, useCallback } from 'react'
-import { Button } from 'shared/ui/Button/Button'
+import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { Input } from 'shared/ui/Input/Input'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { authActions } from '../../model/slice/authSlice'
 import { getAuthState } from '../../model/selectors/getAuthState'
 import { authByUsername } from '../../model/services/authByUsername/authByUsername'
+import { Text, TextTheme } from 'shared/ui/Text/Text'
 
 import s from './LoginForm.module.scss'
 
@@ -22,7 +23,7 @@ export const LoginForm: React.FC<LoginFormProps> = memo((props: LoginFormProps) 
   const { t } = useTranslation()
   const dispatch = useDispatch()
 
-  const { username, password } = useSelector(getAuthState)
+  const { username, password, errorMessage, isLoading } = useSelector(getAuthState)
 
   const onChangeUsername = useCallback((username: string) => {
     dispatch(authActions.setUsername(username))
@@ -38,6 +39,10 @@ export const LoginForm: React.FC<LoginFormProps> = memo((props: LoginFormProps) 
 
   return (
     <div className={ classNames(s.loginForm, [ className ]) }>
+      <Text title={ t('auth.title') } />
+
+      { errorMessage ? <Text text={ errorMessage } theme={ TextTheme.ERROR }>{ errorMessage }</Text> : null }
+
       <Input
         className={ s.loginInput }
         autoFocus
@@ -53,7 +58,11 @@ export const LoginForm: React.FC<LoginFormProps> = memo((props: LoginFormProps) 
         onChange={ onChangePassword }
       />
 
-      <Button onClick={ onLoginBtnClick }>
+      <Button
+        theme={ ButtonTheme.OUTLINE }
+        disabled={ isLoading }
+        onClick={ onLoginBtnClick }
+      >
         { t('common.login') }
       </Button>
     </div>

@@ -2,6 +2,10 @@
   padding: 10px 15px;
 }
 
+.disabled {
+  opacity: 0.5;
+}
+
 .primary {
   color: var(--primary-color);
   background: none;
