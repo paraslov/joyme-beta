@@ -2,10 +2,13 @@
   "language": "RU",
   "auth": {
     "email": "Enter email",
-    "password": "Enter password"
+    "password": "Enter password",
+    "title": "Authorization form",
+    "errorMessage": "Incorrect email or password"
   },
   "topbar": {
-    "login": "Login"
+    "login": "Login",
+    "logout": "Logout"
   },
   "sidebar": {
     "main": "Main",

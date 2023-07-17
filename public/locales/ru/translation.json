@@ -2,10 +2,13 @@
   "language": "EN",
   "auth": {
     "email": "Введите email",
-    "password": "Введите пароль"
+    "password": "Введите пароль",
+    "title": "Форма авторизации",
+    "errorMessage": "Вы ввели неправильный логин и/или пароль"
   },
   "topbar": {
-    "login": "Войти"
+    "login": "Войти",
+    "logout": "Выйти"
   },
   "sidebar": {
     "main": "Главная",

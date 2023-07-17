@@ -89,6 +89,13 @@ OutlineSquareXL.args = {
   children: '+',
 }
 
+export const DisabledOutline = Template.bind({})
+DisabledOutline.args = {
+  theme: ButtonTheme.OUTLINE,
+  disabled: true,
+  children: '+',
+}
+
 export const OutlineSquareXLLight = Template.bind({})
 OutlineSquareXLLight.args = {
   theme: ButtonTheme.OUTLINE,
