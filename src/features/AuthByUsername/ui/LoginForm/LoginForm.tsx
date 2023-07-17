@@ -11,11 +11,11 @@ import { Text, TextTheme } from 'shared/ui/Text/Text'
 
 import s from './LoginForm.module.scss'
 
-interface LoginFormProps {
+export interface LoginFormProps {
   className?: string
 }
 
-export const LoginForm: React.FC<LoginFormProps> = memo((props: LoginFormProps) => {
+const LoginForm: React.FC<LoginFormProps> = memo((props: LoginFormProps) => {
   const {
     className,
   } = props
@@ -68,3 +68,5 @@ export const LoginForm: React.FC<LoginFormProps> = memo((props: LoginFormProps) 
     </div>
   )
 })
+
+export default LoginForm

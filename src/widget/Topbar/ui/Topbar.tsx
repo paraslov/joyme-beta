@@ -16,11 +16,13 @@ interface NavbarProps {
 export const Topbar: React.FC<NavbarProps> = ({ className }) => {
   const { t } = useTranslation()
   const [ isOpen, setIsOpen ] = useState(false)
+  const [ isMounted, setIsMounted ] = useState(false)
   const dispatch = useDispatch()
   const authData = useSelector(getUserAuthData)
 
   const openModal = useCallback(() => {
     setIsOpen(true)
+    setIsMounted(true)
   }, [])
 
   const closeModal = useCallback(() => {
@@ -65,7 +67,7 @@ export const Topbar: React.FC<NavbarProps> = ({ className }) => {
         { t('topbar.login') }
       </Button>
 
-      <LoginModal isOpen={ isOpen } onClose={ closeModal } />
+      { isMounted ? <LoginModal isOpen={ isOpen } onClose={ closeModal } /> : null }
     </div>
   )
 }
