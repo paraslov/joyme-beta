@@ -18,15 +18,30 @@ Primary.args = { }
 Primary.decorators = [ StoreDecorator({
   auth: { username: 'username', password: '123' }
 }) ]
+Primary.story = {
+  parameters: {
+    loki: { skip: true }
+  }
+}
 
 export const WithError = Template.bind({})
 WithError.args = { }
 WithError.decorators = [ StoreDecorator({
   auth: { username: 'username', password: '123', errorMessage: 'something is wrong' }
 }) ]
+WithError.story = {
+  parameters: {
+    loki: { skip: true }
+  }
+}
 
 export const Loading = Template.bind({})
 Loading.args = { }
 Loading.decorators = [ StoreDecorator({
   auth: { username: 'username', password: '123', isLoading: true }
 }) ]
+Loading.story = {
+  parameters: {
+    loki: { skip: true }
+  }
+}
