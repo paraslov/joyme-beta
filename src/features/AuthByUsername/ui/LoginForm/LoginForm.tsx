@@ -4,18 +4,23 @@ import { Input } from 'shared/ui/Input/Input'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
-import { authActions } from '../../model/slice/authSlice'
+import { authActions, authReducer } from '../../model/slice/authSlice'
 import { getAuthState } from '../../model/selectors/getAuthState'
 import { authByUsername } from '../../model/services/authByUsername/authByUsername'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
 
 import s from './LoginForm.module.scss'
+import { DynamicModuleLoader, ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader'
 
 export interface LoginFormProps {
   className?: string
 }
 
-const LoginForm: React.FC<LoginFormProps> = memo((props: LoginFormProps) => {
+const initialReducers: ReducersList = {
+  authForm: authReducer
+}
+
+const LoginForm = memo((props: LoginFormProps) => {
   const {
     className,
   } = props
@@ -23,7 +28,12 @@ const LoginForm: React.FC<LoginFormProps> = memo((props: LoginFormProps) => {
   const { t } = useTranslation()
   const dispatch = useDispatch()
 
-  const { username, password, errorMessage, isLoading } = useSelector(getAuthState)
+  const {
+    username = '',
+    password = '',
+    errorMessage = '',
+    isLoading = false
+  } = useSelector(getAuthState)
 
   const onChangeUsername = useCallback((username: string) => {
     dispatch(authActions.setUsername(username))
@@ -38,34 +48,36 @@ const LoginForm: React.FC<LoginFormProps> = memo((props: LoginFormProps) => {
   }, [ dispatch, password, username ])
 
   return (
-    <div className={ classNames(s.loginForm, [ className ]) }>
-      <Text title={ t('auth.title') } />
+    <DynamicModuleLoader reducers={ initialReducers }>
+      <div className={ classNames(s.loginForm, [ className ]) }>
+        <Text title={ t('auth.title') } />
 
-      { errorMessage ? <Text text={ errorMessage } theme={ TextTheme.ERROR }>{ errorMessage }</Text> : null }
+        { errorMessage ? <Text text={ errorMessage } theme={ TextTheme.ERROR }>{ errorMessage }</Text> : null }
 
-      <Input
-        className={ s.loginInput }
-        autoFocus
-        label={ t('auth.email') }
-        value={ username }
-        onChange={ onChangeUsername }
-      />
+        <Input
+          className={ s.loginInput }
+          autoFocus
+          label={ t('auth.email') }
+          value={ username }
+          onChange={ onChangeUsername }
+        />
 
-      <Input
-        className={ s.loginInput }
-        label={ t('auth.password') }
-        value={ password }
-        onChange={ onChangePassword }
-      />
+        <Input
+          className={ s.loginInput }
+          label={ t('auth.password') }
+          value={ password }
+          onChange={ onChangePassword }
+        />
 
-      <Button
-        theme={ ButtonTheme.OUTLINE }
-        disabled={ isLoading }
-        onClick={ onLoginBtnClick }
-      >
-        { t('common.login') }
-      </Button>
-    </div>
+        <Button
+          theme={ ButtonTheme.OUTLINE }
+          disabled={ isLoading }
+          onClick={ onLoginBtnClick }
+        >
+          { t('common.login') }
+        </Button>
+      </div>
+    </DynamicModuleLoader>
   )
 })
 

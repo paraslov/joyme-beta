@@ -27,6 +27,7 @@ export const Topbar: React.FC<NavbarProps> = ({ className }) => {
 
   const closeModal = useCallback(() => {
     setIsOpen(false)
+    setIsMounted(false)
   }, [])
 
   const onLogout = useCallback(() => {

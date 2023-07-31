@@ -16,7 +16,7 @@ const Template: ComponentStory<typeof LoginForm> = (args) => <div style={ { widt
 export const Primary = Template.bind({})
 Primary.args = { }
 Primary.decorators = [ StoreDecorator({
-  auth: { username: 'username', password: '123' }
+  authForm: { username: 'username', password: '123' }
 }) ]
 Primary.story = {
   parameters: {
@@ -27,7 +27,7 @@ Primary.story = {
 export const WithError = Template.bind({})
 WithError.args = { }
 WithError.decorators = [ StoreDecorator({
-  auth: { username: 'username', password: '123', errorMessage: 'something is wrong' }
+  authForm: { username: 'username', password: '123', errorMessage: 'something is wrong' }
 }) ]
 WithError.story = {
   parameters: {
@@ -38,7 +38,7 @@ WithError.story = {
 export const Loading = Template.bind({})
 Loading.args = { }
 Loading.decorators = [ StoreDecorator({
-  auth: { username: 'username', password: '123', isLoading: true }
+  authForm: { username: 'username', password: '123', isLoading: true }
 }) ]
 Loading.story = {
   parameters: {
