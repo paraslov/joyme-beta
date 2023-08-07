@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 
 import s from './Text.module.scss'
@@ -15,7 +15,7 @@ export enum TextTheme {
   ERROR = 'error',
 }
 
-export const Text: React.FC<TextProps> = (props: TextProps) => {
+export const Text = memo((props: TextProps) => {
   const {
     className,
     title,
@@ -29,4 +29,4 @@ export const Text: React.FC<TextProps> = (props: TextProps) => {
       { text ? <p className={ s.text }> { text } </p> : null }
     </div>
   )
-}
+})

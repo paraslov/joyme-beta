@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { memo, useState } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Button, ButtonSize } from 'shared/ui/Button/Button'
 import { LanguageSwitcher } from 'widget/LanguageSwitcher'
@@ -11,7 +11,7 @@ interface SidebarProps {
   className?: string
 }
 
-export const Sidebar: React.FC<SidebarProps> = ({ className }) => {
+export const Sidebar = memo(({ className }: SidebarProps) => {
   const [ collapsed, setCollapsed ] = useState(false)
 
   const onToggleCollapsed = () => {
@@ -46,4 +46,4 @@ export const Sidebar: React.FC<SidebarProps> = ({ className }) => {
       </div>
     </div>
   )
-}
+})

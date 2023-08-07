@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React, { memo, useCallback, useState } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { ThemeSwitcher } from 'widget/ThemeSwitcher'
 import { useTranslation } from 'react-i18next'
@@ -13,7 +13,7 @@ interface NavbarProps {
   className?: string
 }
 
-export const Topbar: React.FC<NavbarProps> = ({ className }) => {
+export const Topbar = memo(({ className }: NavbarProps) => {
   const { t } = useTranslation()
   const [ isOpen, setIsOpen ] = useState(false)
   const [ isMounted, setIsMounted ] = useState(false)
@@ -71,4 +71,4 @@ export const Topbar: React.FC<NavbarProps> = ({ className }) => {
       { isMounted ? <LoginModal isOpen={ isOpen } onClose={ closeModal } /> : null }
     </div>
   )
-}
+})

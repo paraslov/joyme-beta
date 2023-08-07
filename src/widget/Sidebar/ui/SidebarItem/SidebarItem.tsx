@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink'
 import { SidebarItemType } from '../../model/sidebarItems'
@@ -11,7 +11,7 @@ interface SidebarItemProps {
   collapsed?: boolean
 }
 
-export const SidebarItem: React.FC<SidebarItemProps> = (props: SidebarItemProps) => {
+export const SidebarItem = memo((props: SidebarItemProps) => {
   const {
     item,
     collapsed,
@@ -27,4 +27,4 @@ export const SidebarItem: React.FC<SidebarItemProps> = (props: SidebarItemProps)
       </AppLink>
     </div>
   )
-}
+})
