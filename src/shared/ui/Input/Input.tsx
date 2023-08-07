@@ -12,7 +12,7 @@ interface InputProps extends HTMLInput {
   onChange?: (value: string) => void
 }
 
-export const Input: React.FC<InputProps> = memo((props: InputProps) => {
+export const Input = memo((props: InputProps) => {
   const {
     className,
     value,

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Theme, useTheme } from 'app/providers/ThemeProvider'
 import LightIcon from 'shared/assets/icons/light.svg'
@@ -11,7 +11,7 @@ interface ThemeTogglerProps {
   className?: string
 }
 
-export const ThemeSwitcher: React.FC<ThemeTogglerProps> = ({ className }) => {
+export const ThemeSwitcher = memo(({ className }: ThemeTogglerProps) => {
   const { theme, toggleTheme } = useTheme()
 
   return (
@@ -28,4 +28,4 @@ export const ThemeSwitcher: React.FC<ThemeTogglerProps> = ({ className }) => {
       </Button>
     </div>
   )
-}
+})

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo, ReactNode } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 
 import s from './Text.module.scss'
@@ -8,6 +8,7 @@ interface TextProps {
   title?: string
   text?: string
   theme?: TextTheme
+  children?: ReactNode
 }
 
 export enum TextTheme {
@@ -15,7 +16,7 @@ export enum TextTheme {
   ERROR = 'error',
 }
 
-export const Text: React.FC<TextProps> = (props: TextProps) => {
+export const Text = memo((props: TextProps) => {
   const {
     className,
     title,
@@ -29,4 +30,4 @@ export const Text: React.FC<TextProps> = (props: TextProps) => {
       { text ? <p className={ s.text }> { text } </p> : null }
     </div>
   )
-}
+})

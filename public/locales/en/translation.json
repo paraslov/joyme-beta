@@ -12,7 +12,8 @@
   },
   "sidebar": {
     "main": "Main",
-    "about": "About"
+    "about": "About",
+    "profile": "My profile"
   },
   "common": {
     "notFound": "...Page not found. It happens with the best of us",

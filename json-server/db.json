@@ -25,5 +25,14 @@
       "password": "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "firstName": "JoyMe",
+    "lastName": "Dude",
+    "age": "77",
+    "currency": "EUR",
+    "country": "Cyprus",
+    "city": "Limassol",
+    "username": "joyme",
+    "avatar": "https://static.sadhguru.org/d/46272/1633185964-1633185963177.jpg"
+  }
 }

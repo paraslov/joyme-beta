@@ -1,0 +1,12 @@
+.link {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.linkIcon {
+  width: var(--font-line-m);
+  height: var(--font-line-m);
+  fill: var(--primary-color);
+  margin-right: 16px;
+}
