@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, memo } from 'react'
+import React, { ButtonHTMLAttributes, memo, ReactNode } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import s from './Button.module.scss'
 
@@ -14,6 +14,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: ButtonSize
   square?: boolean
   disabled?: boolean
+  children?: ReactNode
 }
 
 export enum ButtonSize {

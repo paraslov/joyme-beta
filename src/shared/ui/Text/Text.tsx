@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React, { memo, ReactNode } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 
 import s from './Text.module.scss'
@@ -8,6 +8,7 @@ interface TextProps {
   title?: string
   text?: string
   theme?: TextTheme
+  children?: ReactNode
 }
 
 export enum TextTheme {
