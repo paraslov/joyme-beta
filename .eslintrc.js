@@ -44,7 +44,8 @@ module.exports = {
     'i18next/no-literal-string': [ 2, { markupOnly: true, ignoreAttribute: [ 'data-testid' ] } ]
   },
   globals: {
-    '$_IS_DEV': true,
+    $IS_DEV: true,
+    $API_URL: true,
   },
   overrides: [
     {

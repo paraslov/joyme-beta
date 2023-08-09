@@ -11,8 +11,8 @@ import './app/styles/index.scss'
 
 render(
   <div>
-    <StoreProvider>
-      <BrowserRouter>
+    <BrowserRouter>
+      <StoreProvider>
         <ErrorBoundary>
           <ThemeProvider>
             <Suspense fallback={ '' }>
@@ -20,8 +20,8 @@ render(
             </Suspense>
           </ThemeProvider>
         </ErrorBoundary>
-      </BrowserRouter>
-    </StoreProvider>
+      </StoreProvider>
+    </BrowserRouter>
   </div>,
   document.getElementById('root')
-) // 37 16:00
+)
