@@ -1,0 +1,19 @@
+.profileCard {
+  position: relative;
+  color: aliceblue;
+}
+
+.header {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.editBtn {
+  margin-left: auto;
+}
+
+.profileData {
+  padding: 10px;
+  border: 1px solid var(--inverted-bg-color);
+  border-radius: 10px;
+}
