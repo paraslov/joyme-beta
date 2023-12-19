@@ -27,6 +27,7 @@ export function useDynamicModuleLoader(props: DynamicModuleLoaderProps) {
       if (!store.reducerManager?.getReducerMap()[reducerKey]) {
         store.reducerManager.add(reducerKey, reducer)
         dispatch({ type: `@INIT ${reducerKey} reducer` })
+        console.info(`@INIT ${reducerKey} reducer`)
       }
     })
 
@@ -35,6 +36,7 @@ export function useDynamicModuleLoader(props: DynamicModuleLoaderProps) {
         Object.entries(reducers).forEach(([ reducerKey, reducer ]: ReducersListEntry) => {
           store.reducerManager.remove(reducerKey)
           dispatch({ type: `@REMOVE ${reducerKey} reducer` })
+          console.info(`@REMOVE ${reducerKey} reducer`)
         })
       }
     }
