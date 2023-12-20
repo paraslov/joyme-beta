@@ -6,6 +6,9 @@
     "title": "Authorization form",
     "errorMessage": "Incorrect email or password"
   },
+  "profile": {
+    "errorMessage": "Unable to fetch profile data"
+  },
   "topbar": {
     "login": "Login",
     "logout": "Logout"

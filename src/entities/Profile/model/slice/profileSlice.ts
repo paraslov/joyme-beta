@@ -1,10 +1,11 @@
-import { createSlice } from '@reduxjs/toolkit'
-import { ProfileSchema } from '../types/Profile'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { Profile, ProfileSchema } from '../types/Profile'
+import { fetchProfileData } from 'entities/Profile'
 
 const initialState: ProfileSchema = {
   data: undefined,
   isLoading: false,
-  error: undefined,
+  errorMessage: undefined,
   readonly: true,
 }
 
@@ -14,6 +15,21 @@ export const profileSlice = createSlice({
   reducers: {
 
   },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchProfileData.pending, (state, _) => {
+        state.errorMessage = undefined
+        state.isLoading = true
+      })
+      .addCase(fetchProfileData.fulfilled, (state, action: PayloadAction<Profile>) => {
+        state.data = action.payload
+        state.isLoading = false
+      })
+      .addCase(fetchProfileData.rejected, (state, action) => {
+        state.isLoading = false
+        state.errorMessage = action.payload
+      })
+  }
 })
 
 // Action creators are generated for each case reducer function
