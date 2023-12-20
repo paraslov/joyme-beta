@@ -1,4 +1,4 @@
-import webpack from 'webpack'
+import webpack, { WebpackPluginInstance } from 'webpack'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
@@ -25,5 +25,5 @@ export function buildPlugins({ paths, isDev, analyze, apiUrl }: BuildOptions): w
     plugins.push(new ReactRefreshWebpackPlugin({ overlay: false }))
   }
 
-  return plugins.filter(Boolean)
+  return plugins.filter(Boolean) as WebpackPluginInstance[]
 }

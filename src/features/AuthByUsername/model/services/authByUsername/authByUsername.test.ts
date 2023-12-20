@@ -1,13 +1,6 @@
-import axios from 'axios'
-import { authByUsername } from './authByUsername'
-import { Dispatch } from '@reduxjs/toolkit'
-import { StateSchema } from 'app/providers/StoreProvider'
-import { userActions } from 'entities/User'
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk'
-
-jest.mock('axios')
-
-const mockedAxios = jest.mocked(axios, true)
+import { authByUsername } from './authByUsername'
+import { userActions } from 'entities/User'
 
 describe('authByUsername.test: ', () => {
   // let dispatch: Dispatch
@@ -45,26 +38,25 @@ describe('authByUsername.test: ', () => {
 
   test('success auth', async () => {
     const responseValue = { username: 'user1', id: 1 }
-    mockedAxios.post.mockReturnValue(Promise.resolve({ data: responseValue }))
 
     const thunk = new TestAsyncThunk(authByUsername)
+    thunk.api.post.mockReturnValue(Promise.resolve({ data: responseValue }))
     const result = await thunk.callThunk({ username: 'myLogin', password: 'myPass' })
 
     expect(thunk.dispatch).toBeCalledWith(userActions.setAuthData(responseValue))
     expect(thunk.dispatch).toBeCalledTimes(3)
-    expect(mockedAxios.post).toHaveBeenCalled()
+    expect(thunk.api.post).toHaveBeenCalled()
     expect(result.meta.requestStatus).toBe('fulfilled')
     expect(result.payload).toStrictEqual(responseValue)
   })
 
   test('failed auth', async () => {
-    mockedAxios.post.mockReturnValue(Promise.resolve({ status: 403 }))
-
     const thunk = new TestAsyncThunk(authByUsername)
+    thunk.api.post.mockReturnValue(Promise.resolve({ status: 403 }))
     const result = await thunk.callThunk({ username: 'myLogin', password: 'myPass' })
 
     expect(thunk.dispatch).toBeCalledTimes(2)
-    expect(mockedAxios.post).toHaveBeenCalled()
+    expect(thunk.api.post).toHaveBeenCalled()
     expect(result.meta.requestStatus).toBe('rejected')
   })
 })
