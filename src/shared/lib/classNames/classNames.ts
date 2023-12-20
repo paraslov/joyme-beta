@@ -1,6 +1,6 @@
-type Conditional = Record<string, boolean>
+type Conditional = Record<string, boolean | undefined>
 
-export const classNames = (main: string, add: string[] = [], conditional: Conditional = {}) => {
+export const classNames = (main: string, add: Array<string | undefined> = [], conditional: Conditional = {}) => {
   return [
     main,
     ...add.filter(Boolean),
