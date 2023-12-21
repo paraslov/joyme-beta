@@ -1,5 +1,8 @@
 {
   "language": "EN",
+  "btn": {
+    "cancelBtn": "Отмена"
+  },
   "auth": {
     "email": "Введите email",
     "password": "Введите пароль",

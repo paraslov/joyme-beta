@@ -1,29 +1,32 @@
 import React from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
-import { Text } from 'shared/ui/Text/Text'
-import { useSelector } from 'react-redux'
-import { getProfileData } from '../../model/selectors/getProfileData'
-import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading'
-import { getProfileError } from '../../model/selectors/getProfileError'
-
-import s from './ProfileCard.module.scss'
-import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { Input } from 'shared/ui/Input/Input'
 import { Preloader } from 'shared/ui/Preloader/Preloader'
+import { Profile } from '../../model/types/Profile'
+
+import s from './ProfileCard.module.scss'
 
 interface ProfileCardProps {
+  profileData?: Profile
   className?: string
+  isLoading?: boolean
+  readOnly?: boolean
+  errorMessage?: string
+  onChangeFirstName?: (value: string) => void
+  onChangeLastName?: (value: string) => void
 }
 
 export const ProfileCard: React.FC<ProfileCardProps> = (props: ProfileCardProps) => {
   const {
     className,
+    profileData,
+    isLoading,
+    readOnly,
+    errorMessage,
+    onChangeFirstName,
+    onChangeLastName,
   } = props
-
-  const profileData = useSelector(getProfileData)
-  const isLoading = useSelector(getProfileIsLoading)
-  const errorMessage = useSelector(getProfileError)
 
   const { t } = useTranslation('profile')
 
@@ -33,24 +36,20 @@ export const ProfileCard: React.FC<ProfileCardProps> = (props: ProfileCardProps)
         isLoading ? <Preloader size={ '50px' } /> : null
       }
 
-      <div className={ s.header }>
-        <Text title={ t('title') } />
-
-        <Button className={ s.editBtn } theme={ ButtonTheme.OUTLINE }>
-          { t('editBtn') }
-        </Button>
-      </div>
-      { /* todo: add styles*/ }
       <div className={ s.profileData }>
         <Input
           value={ profileData?.firstName }
           placeholder={ t('enterYourFirstName') }
           label={ t('enterYourFirstName') }
+          readOnly={ readOnly }
+          onChange={ onChangeFirstName }
         />
         <Input
           value={ profileData?.lastName }
           placeholder={ t('enterYourLastName') }
           label={ t('enterYourLastName') }
+          readOnly={ readOnly }
+          onChange={ onChangeLastName }
         />
       </div>
     </div>

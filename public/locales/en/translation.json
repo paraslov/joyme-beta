@@ -1,5 +1,8 @@
 {
   "language": "RU",
+  "btn": {
+    "cancelBtn": "Cancel"
+  },
   "auth": {
     "email": "Enter email",
     "password": "Enter password",
