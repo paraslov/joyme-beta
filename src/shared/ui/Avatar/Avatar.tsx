@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 
 import s from './Avatar.module.scss'
@@ -16,7 +16,7 @@ export enum AvatarSize {
   LARGE = 'large',
 }
 
-export const Avatar: React.FC<AvatarProps> = (props: AvatarProps) => {
+export const Avatar: React.FC<AvatarProps> = memo((props: AvatarProps) => {
   const {
     className,
     src,
@@ -27,4 +27,4 @@ export const Avatar: React.FC<AvatarProps> = (props: AvatarProps) => {
   return (
     <img className={ classNames(s.avatar, [ className, s[size] ]) } src={ src } alt={ alt } />
   )
-}
+})
