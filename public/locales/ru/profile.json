@@ -3,5 +3,9 @@
   "editBtn": "Редактировать",
   "enterYourFirstName": "Имя",
   "enterYourLastName": "Фамилия",
+  "enterYourAge": "Возраст",
+  "enterYourUsername": "Имя пользователя",
+  "enterYourAvatar": "Ссылка на аватар",
+  "enterYourCity": "Город",
   "profileError": "Произошла ошибка на странице профиля"
 }

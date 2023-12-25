@@ -15,6 +15,10 @@ interface ProfileCardProps {
   errorMessage?: string
   onChangeFirstName?: (value: string) => void
   onChangeLastName?: (value: string) => void
+  onChangeAge?: (value: string) => void
+  onChangeUsername?: (value: string) => void
+  onChangeAvatar?: (value: string) => void
+  onChangeCity?: (value: string) => void
 }
 
 export const ProfileCard: React.FC<ProfileCardProps> = (props: ProfileCardProps) => {
@@ -23,9 +27,12 @@ export const ProfileCard: React.FC<ProfileCardProps> = (props: ProfileCardProps)
     profileData,
     isLoading,
     readOnly,
-    errorMessage,
     onChangeFirstName,
     onChangeLastName,
+    onChangeAge,
+    onChangeUsername,
+    onChangeAvatar,
+    onChangeCity,
   } = props
 
   const { t } = useTranslation('profile')
@@ -37,6 +44,13 @@ export const ProfileCard: React.FC<ProfileCardProps> = (props: ProfileCardProps)
       }
 
       <div className={ s.profileData }>
+        <Input
+          value={ profileData?.username }
+          placeholder={ t('enterYourUsername') }
+          label={ t('enterYourUsername') }
+          readOnly={ readOnly }
+          onChange={ onChangeUsername }
+        />
         <Input
           value={ profileData?.firstName }
           placeholder={ t('enterYourFirstName') }
@@ -51,6 +65,27 @@ export const ProfileCard: React.FC<ProfileCardProps> = (props: ProfileCardProps)
           readOnly={ readOnly }
           onChange={ onChangeLastName }
         />
+        <Input
+          value={ profileData?.age }
+          placeholder={ t('enterYourAge') }
+          label={ t('enterYourAge') }
+          readOnly={ readOnly }
+          onChange={ onChangeAge }
+        />
+        <Input
+          value={ profileData?.city }
+          placeholder={ t('enterYourCity') }
+          label={ t('enterYourCity') }
+          readOnly={ readOnly }
+          onChange={ onChangeCity }
+        />
+        { !readOnly ? <Input
+          value={ profileData?.avatar }
+          placeholder={ t('enterYourAvatar') }
+          label={ t('enterYourAvatar') }
+          readOnly={ readOnly }
+          onChange={ onChangeAvatar }
+        /> : null }
       </div>
     </div>
   )

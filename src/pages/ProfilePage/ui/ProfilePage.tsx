@@ -55,6 +55,22 @@ const ProfilePage: React.FC<ProfilePageProps> = (props: ProfilePageProps) => {
     dispatch(profileActions.updateProfile({ lastName: value }))
   }, [ dispatch ])
 
+  const onChangeAge = useCallback((value: string) => {
+    dispatch(profileActions.updateProfile({ age: value }))
+  }, [ dispatch ])
+
+  const onChangeUsername = useCallback((value: string) => {
+    dispatch(profileActions.updateProfile({ username: value }))
+  }, [ dispatch ])
+
+  const onChangeAvatar = useCallback((value: string) => {
+    dispatch(profileActions.updateProfile({ avatar: value }))
+  }, [ dispatch ])
+
+  const onChangeCity = useCallback((value: string) => {
+    dispatch(profileActions.updateProfile({ city: value }))
+  }, [ dispatch ])
+
   if (isLoading) {
     return <div className={ classNames(s.profilePage, [ className, s.isLoading ]) }>
       <Preloader />
@@ -70,6 +86,7 @@ const ProfilePage: React.FC<ProfilePageProps> = (props: ProfilePageProps) => {
   return (
     <div className={ classNames(s.profilePage, [ className ]) }>
       <ProfilePageHeader />
+
       <ProfileCard
         profileData={ profileData }
         isLoading={ isLoading }
@@ -77,6 +94,10 @@ const ProfilePage: React.FC<ProfilePageProps> = (props: ProfilePageProps) => {
         errorMessage={ errorMessage }
         onChangeFirstName={ onChangeFirstName }
         onChangeLastName={ onChangeLastName }
+        onChangeAge={ onChangeAge }
+        onChangeUsername={ onChangeUsername }
+        onChangeAvatar={ onChangeAvatar }
+        onChangeCity={ onChangeCity }
       />
     </div>
   )

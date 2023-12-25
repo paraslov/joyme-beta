@@ -8,6 +8,7 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { getProfileReadonly, profileActions } from 'entities/Profile'
 import { useSelector } from 'react-redux'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
+import { saveProfileData } from 'entities/Profile/model/services/saveProfileData/saveProfileData'
 
 interface ProfilePageHeaderProps {
   className?: string
@@ -31,6 +32,10 @@ export const ProfilePageHeader: React.FC<ProfilePageHeaderProps> = (props: Profi
     dispatch(profileActions.cancelEdit())
   }, [ dispatch ])
 
+  const onSaveBtnClick = useCallback(() => {
+    dispatch(saveProfileData())
+  }, [ dispatch ])
+
   return (
     <div className={ classNames(s.profilePageHeader, [ className ]) }>
       <Text title={ t('title') } />
@@ -44,7 +49,7 @@ export const ProfilePageHeader: React.FC<ProfilePageHeaderProps> = (props: Profi
             <Button className={ s.editBtn } theme={ ButtonTheme.WARNING } onClick={ onCancelBtnClick }>
               { t('btn.cancelBtn', { ns: 'translation' }) }
             </Button>
-            <Button className={ s.saveBtn } theme={ ButtonTheme.OUTLINE } onClick={ onCancelBtnClick }>
+            <Button className={ s.saveBtn } theme={ ButtonTheme.OUTLINE } onClick={ onSaveBtnClick }>
               { t('btn.saveBtn', { ns: 'translation' }) }
             </Button>
           </>
