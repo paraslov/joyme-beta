@@ -17,8 +17,8 @@ export {
 } from './ui/ProfileCard/ProfileCard'
 
 export {
-  getProfileData
-} from './model/selectors/getProfileData'
+  getProfileFormData
+} from './model/selectors/getProfileFormData'
 
 export {
   getProfileIsLoading

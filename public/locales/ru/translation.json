@@ -1,7 +1,8 @@
 {
   "language": "EN",
   "btn": {
-    "cancelBtn": "Отмена"
+    "cancelBtn": "Отмена",
+    "saveBtn": "Сохранить"
   },
   "auth": {
     "email": "Введите email",

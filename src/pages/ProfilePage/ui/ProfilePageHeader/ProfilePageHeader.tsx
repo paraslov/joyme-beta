@@ -23,8 +23,12 @@ export const ProfilePageHeader: React.FC<ProfilePageHeaderProps> = (props: Profi
 
   const readOnly = useSelector(getProfileReadonly)
 
-  const changeReadonly = useCallback((readOnly: boolean) => {
-    dispatch(profileActions.setReadonly(readOnly))
+  const onEditBtnClick = useCallback(() => {
+    dispatch(profileActions.setReadonly(false))
+  }, [ dispatch ])
+
+  const onCancelBtnClick = useCallback(() => {
+    dispatch(profileActions.cancelEdit())
   }, [ dispatch ])
 
   return (
@@ -33,12 +37,17 @@ export const ProfilePageHeader: React.FC<ProfilePageHeaderProps> = (props: Profi
 
       {
         readOnly
-          ? <Button className={ s.editBtn } theme={ ButtonTheme.OUTLINE } onClick={ () => changeReadonly(false) }>
+          ? <Button className={ s.editBtn } theme={ ButtonTheme.OUTLINE } onClick={ () => onEditBtnClick() }>
             { t('editBtn') }
           </Button>
-          : <Button className={ s.editBtn } theme={ ButtonTheme.OUTLINE } onClick={ () => changeReadonly(true) }>
-            { t('btn.cancelBtn', { ns: 'translation' }) }
-          </Button>
+          : <>
+            <Button className={ s.editBtn } theme={ ButtonTheme.WARNING } onClick={ onCancelBtnClick }>
+              { t('btn.cancelBtn', { ns: 'translation' }) }
+            </Button>
+            <Button className={ s.saveBtn } theme={ ButtonTheme.OUTLINE } onClick={ onCancelBtnClick }>
+              { t('btn.saveBtn', { ns: 'translation' }) }
+            </Button>
+          </>
       }
     </div>
   )

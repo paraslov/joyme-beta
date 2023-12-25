@@ -29,6 +29,12 @@
   border: 1px solid var(--primary-color);
 }
 
+.warning {
+  color: var(--secondary-color);
+  background: none;
+  border: 1px solid var(--secondary-color);
+}
+
 .square {
   padding: 0;
 }

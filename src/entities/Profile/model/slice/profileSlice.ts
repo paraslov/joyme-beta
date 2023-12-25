@@ -4,6 +4,7 @@ import { fetchProfileData } from 'entities/Profile'
 
 const initialState: ProfileSchema = {
   data: undefined,
+  formData: undefined,
   isLoading: false,
   errorMessage: undefined,
   readonly: true,
@@ -16,9 +17,13 @@ export const profileSlice = createSlice({
     setReadonly: (state, action: PayloadAction<boolean>) => {
       state.readonly = action.payload
     },
+    cancelEdit: (state) => {
+      state.readonly = true
+      state.formData = state.data
+    },
     updateProfile: (state, action: PayloadAction<Profile>) => {
-      state.data = {
-        ...state.data,
+      state.formData = {
+        ...state.formData,
         ...action.payload,
       }
     },
@@ -31,6 +36,7 @@ export const profileSlice = createSlice({
       })
       .addCase(fetchProfileData.fulfilled, (state, action: PayloadAction<Profile>) => {
         state.data = action.payload
+        state.formData = action.payload
         state.isLoading = false
       })
       .addCase(fetchProfileData.rejected, (state, action) => {

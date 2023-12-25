@@ -6,9 +6,11 @@ import s from './ProfilePage.module.scss'
 import { ReducersList, useDynamicModuleLoader } from 'shared/lib/DynamicModuleLoader/useDynamicModuleLoader'
 import {
   fetchProfileData,
-  getProfileData,
   getProfileError,
-  getProfileIsLoading, getProfileReadonly, profileActions,
+  getProfileFormData,
+  getProfileIsLoading,
+  getProfileReadonly,
+  profileActions,
   ProfileCard,
   profileReducer
 } from 'entities/Profile'
@@ -36,7 +38,7 @@ const ProfilePage: React.FC<ProfilePageProps> = (props: ProfilePageProps) => {
   const { t } = useTranslation('profile')
   const dispatch = useAppDispatch()
 
-  const profileData = useSelector(getProfileData)
+  const profileData = useSelector(getProfileFormData)
   const isLoading = useSelector(getProfileIsLoading)
   const errorMessage = useSelector(getProfileError)
   const readOnly = useSelector(getProfileReadonly)
