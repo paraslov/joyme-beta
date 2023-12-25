@@ -6,6 +6,7 @@ import { Preloader } from 'shared/ui/Preloader/Preloader'
 import { Profile } from '../../model/types/Profile'
 
 import s from './ProfileCard.module.scss'
+import { Avatar } from 'shared/ui/Avatar/Avatar'
 
 interface ProfileCardProps {
   profileData?: Profile
@@ -44,6 +45,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = (props: ProfileCardProps)
       }
 
       <div className={ s.profileData }>
+        <Avatar src={ profileData?.avatar } />
         <Input
           value={ profileData?.username }
           placeholder={ t('enterYourUsername') }
