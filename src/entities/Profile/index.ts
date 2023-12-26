@@ -15,3 +15,19 @@ export {
 export {
   ProfileCard
 } from './ui/ProfileCard/ProfileCard'
+
+export {
+  getProfileFormData
+} from './model/selectors/getProfileFormData'
+
+export {
+  getProfileIsLoading
+} from './model/selectors/getProfileIsLoading'
+
+export {
+  getProfileError
+} from './model/selectors/getProfileError'
+
+export {
+  getProfileReadonly
+} from './model/selectors/getProfileReadonly'

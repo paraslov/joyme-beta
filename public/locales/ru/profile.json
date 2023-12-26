@@ -2,5 +2,10 @@
   "title": "Профиль",
   "editBtn": "Редактировать",
   "enterYourFirstName": "Имя",
-  "enterYourLastName": "Фамилия"
+  "enterYourLastName": "Фамилия",
+  "enterYourAge": "Возраст",
+  "enterYourUsername": "Имя пользователя",
+  "enterYourAvatar": "Ссылка на аватар",
+  "enterYourCity": "Город",
+  "profileError": "Произошла ошибка на странице профиля"
 }

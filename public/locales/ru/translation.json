@@ -1,5 +1,9 @@
 {
   "language": "EN",
+  "btn": {
+    "cancelBtn": "Отмена",
+    "saveBtn": "Сохранить"
+  },
   "auth": {
     "email": "Введите email",
     "password": "Введите пароль",
@@ -21,7 +25,9 @@
   "common": {
     "notFound": "...Страница не найдена. Это случается с лучшими из нас",
     "refreshPage": "Обновить страницу",
-    "login": "Войти"
+    "login": "Войти",
+    "pickCurrency": "Валюта",
+    "pickCountry": "Страна"
   },
   "errors": {
     "pageError": "Сожалеем, произошла непредвиденная ошибка!"

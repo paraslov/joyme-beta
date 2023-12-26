@@ -3,12 +3,13 @@ import { classNames } from 'shared/lib/classNames/classNames'
 
 import s from './Input.module.scss'
 
-type HTMLInput = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
+type HTMLInput = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
 
 interface InputProps extends HTMLInput {
   className?: string
   value?: string
   label?: string
+  readOnly?: boolean
   onChange?: (value: string) => void
 }
 
@@ -17,8 +18,9 @@ export const Input = memo((props: InputProps) => {
     className,
     value,
     onChange,
-    type = 'text',
     label,
+    readOnly,
+    type = 'text',
     ...otherProps
   } = props
 
@@ -27,7 +29,7 @@ export const Input = memo((props: InputProps) => {
   }
 
   return (
-    <div className={ classNames(s.inputWrapper, [ className ]) }>
+    <div className={ classNames(s.inputWrapper, [ className ], { [s.readOnly]: readOnly }) }>
       { label
         ? <div className={ s.placeholder }>
           { label }:
@@ -35,13 +37,17 @@ export const Input = memo((props: InputProps) => {
         : null
       }
 
-      <input
-        className={ s.input }
-        type={ type }
-        value={ value }
-        onChange={ onChangeHandler }
-        { ...otherProps }
-      />
+      { readOnly
+        ? <div className={ s.readOnlyText }>{ value }</div>
+        : <input
+          className={ s.input }
+          type={ type }
+          value={ value }
+          onChange={ onChangeHandler }
+          { ...otherProps }
+        />
+
+      }
     </div>
   )
 })

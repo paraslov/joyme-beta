@@ -2,5 +2,10 @@
   "title": "Profile",
   "editBtn": "Edit",
   "enterYourFirstName": "First name",
-  "enterYourLastName": "Last name"
+  "enterYourLastName": "Last name",
+  "enterYourAge": "Age",
+  "enterYourUsername": "Username",
+  "enterYourAvatar": "Avatar link",
+  "enterYourCity": "City",
+  "profileError": "Profile page error"
 }

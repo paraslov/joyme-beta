@@ -1,4 +1,5 @@
 .button {
+  cursor: pointer;
   padding: 10px 15px;
 }
 
@@ -26,6 +27,12 @@
   color: var(--primary-color);
   background: none;
   border: 1px solid var(--primary-color);
+}
+
+.warning {
+  color: var(--secondary-color);
+  background: none;
+  border: 1px solid var(--secondary-color);
 }
 
 .square {

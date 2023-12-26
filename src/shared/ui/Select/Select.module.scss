@@ -1,19 +1,16 @@
-.inputWrapper {
+.wrapper {
   color: var(--primary-color);
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.input {
+.select {
+  min-width: 150px;
   border-radius: 5px;
   padding: 2px 4px;
 }
 
 .readOnly {
   opacity: 0.8;
-}
-
-.readOnlyText {
-  padding: 4px;
 }

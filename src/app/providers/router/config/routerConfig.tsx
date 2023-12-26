@@ -5,21 +5,26 @@ import { RoutePath } from 'shared/config/routes/routes'
 import { NotFound } from 'pages/NotFound'
 import { ProfilePage } from 'pages/ProfilePage'
 
-export const routeConfig: RouteProps[] = [
+type AppRouteProps = RouteProps & {
+  authOnly?: boolean
+}
+
+export const routeConfig: AppRouteProps[] = [
   {
     path: RoutePath.main,
     element: <MainPage />,
   },
   {
     path: RoutePath.about,
-    element: <AboutPage />
+    element: <AboutPage />,
   },
   {
     path: RoutePath.profile,
-    element: <ProfilePage />
+    element: <ProfilePage />,
+    authOnly: true,
   },
   {
     path: RoutePath.not_found,
-    element: <NotFound />
+    element: <NotFound />,
   }
 ]
