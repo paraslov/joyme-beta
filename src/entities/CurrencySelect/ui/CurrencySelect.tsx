@@ -1,9 +1,9 @@
-import React, { useCallback } from 'react'
+import React, { memo, useCallback } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
 
 import { Select } from 'shared/ui/Select/Select'
-import { Currency } from 'entities/CurrencySelect'
+import { Currency } from '../model/enums/CurrencyEnum'
 
 interface CurrencySelectProps {
   className?: string
@@ -19,7 +19,7 @@ const currencyOptions = [
   { value: Currency.USD, content: Currency.USD },
 ]
 
-export const CurrencySelect: React.FC<CurrencySelectProps> = (props: CurrencySelectProps) => {
+export const CurrencySelect: React.FC<CurrencySelectProps> = memo((props: CurrencySelectProps) => {
   const {
     className,
     value,
@@ -44,4 +44,4 @@ export const CurrencySelect: React.FC<CurrencySelectProps> = (props: CurrencySel
       />
     </div>
   )
-}
+})

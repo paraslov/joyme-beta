@@ -1,9 +1,9 @@
-import React, { useCallback } from 'react'
+import React, { memo, useCallback } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
 
 import { Select } from 'shared/ui/Select/Select'
-import { Country } from 'entities/CountrySelect'
+import { Country } from '../model/enums/Countries'
 
 interface CountrySelectProps {
   className?: string
@@ -19,7 +19,7 @@ const countryOptions = [
   { value: Country.CY, content: Country.CY },
 ]
 
-export const CountrySelect: React.FC<CountrySelectProps> = (props: CountrySelectProps) => {
+export const CountrySelect: React.FC<CountrySelectProps> = memo((props: CountrySelectProps) => {
   const {
     className,
     value,
@@ -44,4 +44,4 @@ export const CountrySelect: React.FC<CountrySelectProps> = (props: CountrySelect
       />
     </div>
   )
-}
+})
