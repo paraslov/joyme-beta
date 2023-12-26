@@ -7,6 +7,9 @@ import { Profile } from '../../model/types/Profile'
 
 import s from './ProfileCard.module.scss'
 import { Avatar } from 'shared/ui/Avatar/Avatar'
+import { CurrencySelect } from 'entities/CurrencySelect/ui/CurrencySelect'
+import { Currency } from 'entities/CurrencySelect'
+import { Country, CountrySelect } from 'entities/CountrySelect'
 
 interface ProfileCardProps {
   profileData?: Profile
@@ -20,6 +23,8 @@ interface ProfileCardProps {
   onChangeUsername?: (value: string) => void
   onChangeAvatar?: (value: string) => void
   onChangeCity?: (value: string) => void
+  onChangeCurrency?: (value: Currency) => void
+  onChangeCountry?: (value: Country) => void
 }
 
 export const ProfileCard: React.FC<ProfileCardProps> = (props: ProfileCardProps) => {
@@ -34,6 +39,8 @@ export const ProfileCard: React.FC<ProfileCardProps> = (props: ProfileCardProps)
     onChangeUsername,
     onChangeAvatar,
     onChangeCity,
+    onChangeCurrency,
+    onChangeCountry,
   } = props
 
   const { t } = useTranslation('profile')
@@ -81,6 +88,8 @@ export const ProfileCard: React.FC<ProfileCardProps> = (props: ProfileCardProps)
           readOnly={ readOnly }
           onChange={ onChangeCity }
         />
+        <CurrencySelect value={ profileData?.currency } readOnly={ readOnly } onChange={ onChangeCurrency } />
+        <CountrySelect value={ profileData?.country } readOnly={ readOnly } onChange={ onChangeCountry } />
         { !readOnly ? <Input
           value={ profileData?.avatar }
           placeholder={ t('enterYourAvatar') }

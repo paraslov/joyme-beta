@@ -25,7 +25,9 @@
   "common": {
     "notFound": "...Page not found. It happens with the best of us",
     "refreshPage": "Refresh page",
-    "login": "LogIn"
+    "login": "LogIn",
+    "pickCurrency": "Currency",
+    "pickCountry": "Country"
   },
   "errors": {
     "pageError": "Sorry, we have an unhandled error!"

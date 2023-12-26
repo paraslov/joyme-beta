@@ -1,8 +1,6 @@
 import React, { useCallback, useEffect } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
-
-import s from './ProfilePage.module.scss'
 import { ReducersList, useDynamicModuleLoader } from 'shared/lib/DynamicModuleLoader/useDynamicModuleLoader'
 import {
   fetchProfileData,
@@ -19,6 +17,10 @@ import { useSelector } from 'react-redux'
 import { Preloader } from 'shared/ui/Preloader/Preloader'
 import { Text, TextAlign } from 'shared/ui/Text/Text'
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader'
+import { Currency } from 'entities/CurrencySelect'
+import { Country } from 'entities/CountrySelect'
+
+import s from './ProfilePage.module.scss'
 
 export interface ProfilePageProps {
   className?: string
@@ -71,6 +73,14 @@ const ProfilePage: React.FC<ProfilePageProps> = (props: ProfilePageProps) => {
     dispatch(profileActions.updateProfile({ city: value }))
   }, [ dispatch ])
 
+  const onChangeCurrency = useCallback((value: Currency) => {
+    dispatch(profileActions.updateProfile({ currency: value }))
+  }, [ dispatch ])
+
+  const onChangeCountry = useCallback((value: Country) => {
+    dispatch(profileActions.updateProfile({ country: value }))
+  }, [ dispatch ])
+
   if (isLoading) {
     return <div className={ classNames(s.profilePage, [ className, s.isLoading ]) }>
       <Preloader />
@@ -98,6 +108,8 @@ const ProfilePage: React.FC<ProfilePageProps> = (props: ProfilePageProps) => {
         onChangeUsername={ onChangeUsername }
         onChangeAvatar={ onChangeAvatar }
         onChangeCity={ onChangeCity }
+        onChangeCurrency={ onChangeCurrency }
+        onChangeCountry={ onChangeCountry }
       />
     </div>
   )

@@ -6,7 +6,7 @@ import s from './Select.module.scss'
 interface SelectProps {
   className?: string
   options: SelectOptions[]
-  value: string | number
+  value?: string | number
   label?: string
   readOnly?: boolean
   onChange?: (value: string | number) => void
@@ -42,7 +42,7 @@ export const Select: React.FC<SelectProps> = memo((props: SelectProps) => {
   }
 
   return (
-    <div className={ classNames(s.wrapper, [ className ]) }>
+    <div className={ classNames(s.wrapper, [ className ], { [s.readOnly]: readOnly }) }>
       { label ? (
         <span className={ s.label }>
           { label }
