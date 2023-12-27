@@ -10,6 +10,9 @@ import { Avatar } from 'shared/ui/Avatar/Avatar'
 import { CurrencySelect } from 'entities/CurrencySelect/ui/CurrencySelect'
 import { Currency } from 'entities/CurrencySelect'
 import { Country, CountrySelect } from 'entities/CountrySelect'
+import { useSelector } from 'react-redux'
+import { getProfileErrors } from 'entities/Profile'
+import { Text, TextTheme } from 'shared/ui/Text/Text'
 
 interface ProfileCardProps {
   profileData?: Profile
@@ -44,6 +47,8 @@ export const ProfileCard: React.FC<ProfileCardProps> = (props: ProfileCardProps)
   } = props
 
   const { t } = useTranslation('profile')
+
+  const errors = useSelector(getProfileErrors)
 
   return (
     <div className={ classNames(s.profileCard, [ className ]) }>
@@ -97,6 +102,11 @@ export const ProfileCard: React.FC<ProfileCardProps> = (props: ProfileCardProps)
           readOnly={ readOnly }
           onChange={ onChangeAvatar }
         /> : null }
+
+        { errors?.length
+          ? errors.map((err) => <Text theme={ TextTheme.ERROR } text={ t(`errors.${err}`) } key={ err } /> )
+          : null
+        }
       </div>
     </div>
   )
