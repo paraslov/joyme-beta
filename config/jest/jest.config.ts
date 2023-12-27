@@ -10,6 +10,7 @@ export default {
   globals: {
     $IS_DEV: true,
     $API_URL: '',
+    $PROJECT: 'jest',
   },
   // Automatically clear mock calls, instances and results before every test
   clearMocks: true,
