@@ -1,5 +1,6 @@
 import { Country } from 'entities/CountrySelect'
 import { Currency } from 'entities/CurrencySelect'
+import { ValidateProfileErrors } from './ValidateProfileErrors'
 
 export interface Profile {
   firstName?: string
@@ -18,4 +19,5 @@ export interface ProfileSchema {
   isLoading: boolean
   errorMessage?: string
   readonly: boolean
+  errors?: ValidateProfileErrors[]
 }

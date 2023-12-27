@@ -7,5 +7,11 @@
   "enterYourUsername": "Username",
   "enterYourAvatar": "Avatar link",
   "enterYourCity": "City",
-  "profileError": "Profile page error"
+  "profileError": "Profile page error",
+  "errors": {
+    "NO_DATA": "No profile data",
+    "SERVER_ERROR": "Server error",
+    "INCORRECT_AGE": "Incorrect age input",
+    "NOT_FILLED_DATA": "Not filled username, lastname or firstname"
+  }
 }
