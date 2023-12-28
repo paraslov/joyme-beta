@@ -5,11 +5,11 @@ import { CurrencySelect } from './CurrencySelect'
 import { Currency } from '../model/enums/CurrencyEnum'
 
 export default {
-  title: 'entities/Select',
+  title: 'entities/CurrencySelect',
   component: CurrencySelect,
 } as ComponentMeta<typeof CurrencySelect>
 
-const Template: ComponentStory<typeof CurrencySelect> = (args) => <div style={ { width: '300px' } }>
+const Template: ComponentStory<typeof CurrencySelect> = (args) => <div style={ { width: '600px' } }>
   <CurrencySelect { ...args } />
 </div>
 

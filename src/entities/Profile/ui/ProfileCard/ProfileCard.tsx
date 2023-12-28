@@ -4,8 +4,6 @@ import { useTranslation } from 'react-i18next'
 import { Input } from 'shared/ui/Input/Input'
 import { Preloader } from 'shared/ui/Preloader/Preloader'
 import { Profile } from '../../model/types/Profile'
-
-import s from './ProfileCard.module.scss'
 import { Avatar } from 'shared/ui/Avatar/Avatar'
 import { CurrencySelect } from 'entities/CurrencySelect/ui/CurrencySelect'
 import { Currency } from 'entities/CurrencySelect'
@@ -13,6 +11,8 @@ import { Country, CountrySelect } from 'entities/CountrySelect'
 import { useSelector } from 'react-redux'
 import { getProfileErrors } from 'entities/Profile'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
+
+import s from './ProfileCard.module.scss'
 
 interface ProfileCardProps {
   profileData?: Profile

@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 import s from './ProfilePageHeader.module.scss'
 import { Text } from 'shared/ui/Text/Text'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
-import { getProfileReadonly, profileActions } from 'entities/Profile'
+import { fetchProfileData, getProfileReadonly, profileActions } from 'entities/Profile'
 import { useSelector } from 'react-redux'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { saveProfileData } from 'entities/Profile/model/services/saveProfileData/saveProfileData'
@@ -33,7 +33,9 @@ export const ProfilePageHeader: React.FC<ProfilePageHeaderProps> = (props: Profi
   }, [ dispatch ])
 
   const onSaveBtnClick = useCallback(() => {
-    dispatch(saveProfileData())
+    if ($PROJECT !== 'storybook') {
+      dispatch(saveProfileData())
+    }
   }, [ dispatch ])
 
   return (

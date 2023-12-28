@@ -46,6 +46,7 @@ const ProfilePage: React.FC<ProfilePageProps> = (props: ProfilePageProps) => {
   const readOnly = useSelector(getProfileReadonly)
 
   useEffect(() => {
+    console.log('@> project: ', $PROJECT)
     if ($PROJECT !== 'storybook') {
       dispatch(fetchProfileData())
     }
