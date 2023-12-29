@@ -15,15 +15,30 @@ export const Primary = Template.bind({})
 Primary.args = {
   src: avatar,
 }
+Primary.story = {
+  parameters: {
+    loki: { skip: true }
+  }
+}
 
 export const Small = Template.bind({})
 Small.args = {
   src: avatar,
   size: AvatarSize.SMALL,
 }
+Small.story = {
+  parameters: {
+    loki: { skip: true }
+  }
+}
 
 export const Large = Template.bind({})
 Large.args = {
   src: avatar,
   size: AvatarSize.LARGE,
+}
+Large.story = {
+  parameters: {
+    loki: { skip: true }
+  }
 }

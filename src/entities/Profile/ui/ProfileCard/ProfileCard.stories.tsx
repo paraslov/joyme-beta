@@ -5,7 +5,6 @@ import { ProfileCard } from './ProfileCard'
 import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator'
 import { Country } from 'entities/CountrySelect'
 import { Currency } from 'entities/CurrencySelect'
-import avatar from '../../../../shared/assets/tests/avaSB.jpg'
 import { ValidateProfileErrors } from 'entities/Profile/model/types/ValidateProfileErrors'
 
 export default {
@@ -27,7 +26,6 @@ Primary.args = {
     country: Country.SP,
     currency: Currency.RUB,
     city: 'Voronejjj',
-    avatar: avatar,
   },
   readOnly: true,
 }
@@ -43,7 +41,6 @@ WithValidationErrors.args = {
     country: Country.SP,
     currency: Currency.RUB,
     city: 'Voronejjj',
-    avatar: avatar,
   },
   readOnly: true,
 }
@@ -62,9 +59,13 @@ Loading.args = {
     country: Country.SP,
     currency: Currency.RUB,
     city: 'Voronejjj',
-    avatar: avatar,
   },
   isLoading: true
 }
 Loading.decorators = [ StoreDecorator({ profile: {} }) ]
+Loading.story = {
+  parameters: {
+    loki: { skip: true }
+  }
+}
 

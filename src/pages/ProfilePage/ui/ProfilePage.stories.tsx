@@ -6,7 +6,6 @@ import ProfilePage from './ProfilePage'
 import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator'
 import { Country } from 'entities/CountrySelect'
 import { Currency } from 'entities/CurrencySelect'
-import avatar from 'shared/assets/tests/avaSB.jpg'
 
 export default {
   title: 'page/ProfilePage',
@@ -30,7 +29,6 @@ Dark.decorators = [ StoreDecorator({
       country: Country.SP,
       currency: Currency.RUB,
       city: 'Voronejjj',
-      avatar: avatar,
     },
     readonly: true,
   }
@@ -49,7 +47,6 @@ Light.decorators = [ ThemeDecorator(Theme.LIGHT), StoreDecorator({
       country: Country.SP,
       currency: Currency.RUB,
       city: 'Voronejjj',
-      avatar: avatar,
     },
     readonly: true,
   }

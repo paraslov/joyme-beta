@@ -41,7 +41,7 @@ module.exports = {
     'array-bracket-spacing': [ 1, 'always' ],
     'no-undef': 0,
     'no-trailing-spaces': 1,
-    'i18next/no-literal-string': [ 2, { markupOnly: true, ignoreAttribute: [ 'data-testid', 'size' ] } ],
+    'i18next/no-literal-string': [ 2, { markupOnly: true, ignoreAttribute: [ 'data-testid', 'size', 'alt' ] } ],
   },
   globals: {
     $IS_DEV: true,
