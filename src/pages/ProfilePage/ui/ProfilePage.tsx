@@ -46,7 +46,10 @@ const ProfilePage: React.FC<ProfilePageProps> = (props: ProfilePageProps) => {
   const readOnly = useSelector(getProfileReadonly)
 
   useEffect(() => {
-    dispatch(fetchProfileData())
+    console.log('@> project: ', $PROJECT)
+    if ($PROJECT !== 'storybook') {
+      dispatch(fetchProfileData())
+    }
   }, [ dispatch ])
 
   const onChangeFirstName = useCallback((value: string) => {

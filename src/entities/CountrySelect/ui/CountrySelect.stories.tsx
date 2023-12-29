@@ -5,11 +5,11 @@ import { CountrySelect } from './CountrySelect'
 import { Country } from '../model/enums/Countries'
 
 export default {
-  title: 'entities/Select',
+  title: 'entities/CountrySelect',
   component: CountrySelect,
 } as ComponentMeta<typeof CountrySelect>
 
-const Template: ComponentStory<typeof CountrySelect> = (args) => <div style={ { width: '300px' } }>
+const Template: ComponentStory<typeof CountrySelect> = (args) => <div style={ { width: '600px' } }>
   <CountrySelect { ...args } />
 </div>
 

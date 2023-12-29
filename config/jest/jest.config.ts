@@ -10,6 +10,7 @@ export default {
   globals: {
     $IS_DEV: true,
     $API_URL: '',
+    $PROJECT: 'jest',
   },
   // Automatically clear mock calls, instances and results before every test
   clearMocks: true,
@@ -34,8 +35,8 @@ export default {
   ],
   modulePaths: [ '<rootDir>/src/' ],
   moduleNameMapper: {
-    '\\.s?css$': 'identity-obj-proxy',
-    '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx')
+    '.+\\.(css|styl|less|sass|scss|png|jpg|gif|ttf|woff|woff2)$': 'identity-obj-proxy',
+    '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
   },
   // The glob patterns Jest uses to detect test files
   testMatch: [
