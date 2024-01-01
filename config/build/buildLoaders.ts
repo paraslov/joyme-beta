@@ -1,5 +1,6 @@
 import { RuleSetRule } from 'webpack'
 import { buildScssLoaders } from './loaders/buildScssLoaders'
+import { buildBabelLoader } from './loaders/buildBabelLoader'
 
 export function buildLoaders(isDev: boolean): RuleSetRule[] {
   const scssLoader = buildScssLoaders(isDev)
@@ -10,16 +11,7 @@ export function buildLoaders(isDev: boolean): RuleSetRule[] {
     exclude: /node_modules/,
   }
 
-  const babelLoader = {
-    test: /\.(js|jsx|ts|tsx)$/,
-    exclude: /node_modules/,
-    use: {
-      loader: 'babel-loader',
-      options: {
-        presets: [ '@babel/preset-env' ]
-      }
-    }
-  }
+  const babelLoader = buildBabelLoader(isDev)
 
   const svgLoader = {
     test: /\.svg$/,
