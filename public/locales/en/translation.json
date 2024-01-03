@@ -20,7 +20,8 @@
   "sidebar": {
     "main": "Main",
     "about": "About",
-    "profile": "My profile"
+    "profile": "My profile",
+    "articles": "Articles"
   },
   "common": {
     "notFound": "...Page not found. It happens with the best of us",
