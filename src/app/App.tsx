@@ -4,12 +4,13 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import { Router } from './providers/router'
 import { Topbar } from 'widget/Topbar'
 import { Sidebar } from 'widget/Sidebar'
-import { useDispatch } from 'react-redux'
-import { userActions } from 'entities/User'
+import { useDispatch, useSelector } from 'react-redux'
+import { getUserIsInitialized, userActions } from 'entities/User'
 
 const App = () => {
   const { theme } = useTheme()
   const dispatch = useDispatch()
+  const isInitialized = useSelector(getUserIsInitialized)
 
   useEffect(() => {
     dispatch(userActions.initAuthData())
@@ -21,7 +22,7 @@ const App = () => {
 
       <div className={ 'content-page' }>
         <Sidebar/>
-        <Router/>
+        { isInitialized ? <Router/> : null }
       </div>
     </div>
   )
