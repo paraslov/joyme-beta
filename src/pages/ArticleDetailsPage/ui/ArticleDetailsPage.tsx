@@ -1,6 +1,7 @@
 import React, { memo } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
-import { useTranslation } from 'react-i18next'
+import { ArticleDetails } from 'entities/ArticleDetails'
+import { useParams } from 'react-router-dom'
 
 import s from './ArticleDetailsPage.module.scss'
 
@@ -13,11 +14,11 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = (props: ArticleDet
     className,
   } = props
 
-  const { t } = useTranslation('articleDetails')
+  const { id: articleId } = useParams<{id: string}>()
 
   return (
     <div className={ classNames(s.articleDetailsPage, [ className ]) }>
-      { t('title') }
+      <ArticleDetails articleId={ articleId } />
     </div>
   )
 }

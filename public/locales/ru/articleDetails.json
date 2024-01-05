@@ -1,3 +1,7 @@
 {
-  "title": "Статья"
+  "title": "Статья",
+  "articleNotFound": "Статья не найдена",
+  "errors": {
+    "serverErrorMessage": "Сервер не смог успешно запросить статью"
+  }
 }

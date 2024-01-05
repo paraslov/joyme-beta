@@ -1,3 +1,7 @@
 {
-  "title": "Article details page title"
+  "title": "Article details page title",
+  "articleNotFound": "Article not found",
+  "errors": {
+    "serverErrorMessage": "Server couldn't fetch article"
+  }
 }
