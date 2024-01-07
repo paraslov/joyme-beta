@@ -5,13 +5,30 @@
 }
 
 .avatar {
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
 }
 
 .title {
   margin-bottom: 22px;
 }
 
+.infoWrapper {
+  display: flex;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  margin-right: 32px;
+  margin-bottom: 24px;
+
+  svg {
+    margin-right: 10px;
+  }
+}
+
 .blocks {
-  margin-bottom: 15px;
+  margin-bottom: 24px;
 }

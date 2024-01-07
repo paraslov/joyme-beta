@@ -16,7 +16,7 @@ export const fetchArticleDetails = createAsyncThunk<Article, string, ThunkConfig
 
       return response.data
     } catch (err) {
-      return rejectWithValue(i18n.t('errors.serverErrorMessage', '', { ns: 'articleDetails' }))
+      return rejectWithValue(i18n.t('errors.serverErrorMessage', '', { ns: 'articleDetails' }) || 'Some error occurred')
     }
   }
 )
