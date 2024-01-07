@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 
 import ArticlePage from './ArticlePage'
 
-const groupName = 'shared'
+const groupName = 'page'
 const containerWidth = '600px'
 
 export default {
