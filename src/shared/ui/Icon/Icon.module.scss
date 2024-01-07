@@ -1,0 +1,12 @@
+.icon {
+  fill: var(--primary-color);
+  stroke: var(--primary-color);
+}
+
+.strokeColor {
+  fill: none;
+
+  path {
+    stroke: var(--primary-color);
+  }
+}

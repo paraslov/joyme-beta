@@ -14,7 +14,11 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = (props: ArticleDet
     className,
   } = props
 
-  const { id: articleId } = useParams<{id: string}>()
+  let { id: articleId } = useParams<{id: string}>()
+
+  if ($PROJECT === 'storybook') {
+    articleId = '1'
+  }
 
   return (
     <div className={ classNames(s.articleDetailsPage, [ className ]) }>

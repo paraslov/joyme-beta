@@ -10,6 +10,7 @@ interface TextProps {
   theme?: TextTheme
   children?: ReactNode
   textAlign?: TextAlign
+  textSize?: TextSize
 }
 
 export enum TextTheme {
@@ -23,6 +24,12 @@ export enum TextAlign {
   CENTER = 'text-center',
 }
 
+export enum TextSize {
+  SMALL = 'text-small',
+  MEDIUM = 'text-medium',
+  LARGE = 'text-large',
+}
+
 export const Text = memo((props: TextProps) => {
   const {
     className,
@@ -30,10 +37,11 @@ export const Text = memo((props: TextProps) => {
     text,
     theme = TextTheme.PRIMARY,
     textAlign = TextAlign.LEFT,
+    textSize = TextSize.MEDIUM,
   } = props
 
   return (
-    <div className={ classNames(s.textWrapper, [ className, s[theme], s[textAlign] ]) }>
+    <div className={ classNames(s.textWrapper, [ className, s[theme], s[textAlign], s[textSize] ]) }>
       { title ? <p className={ s.title }> { title } </p> : null }
       { text ? <p className={ s.text }> { text } </p> : null }
     </div>
