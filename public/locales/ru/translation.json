@@ -28,7 +28,8 @@
     "refreshPage": "Обновить страницу",
     "login": "Войти",
     "pickCurrency": "Валюта",
-    "pickCountry": "Страна"
+    "pickCountry": "Страна",
+    "noComments": "Пока что нет комментариев"
   },
   "errors": {
     "pageError": "Сожалеем, произошла непредвиденная ошибка!"

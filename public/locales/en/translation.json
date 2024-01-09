@@ -28,7 +28,8 @@
     "refreshPage": "Refresh page",
     "login": "LogIn",
     "pickCurrency": "Currency",
-    "pickCountry": "Country"
+    "pickCountry": "Country",
+    "noComments": "No comments yet"
   },
   "errors": {
     "pageError": "Sorry, we have an unhandled error!"
