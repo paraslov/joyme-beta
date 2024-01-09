@@ -25,5 +25,3 @@ render(
   </div>,
   document.getElementById('root')
 )
-
-// 15:00 51
