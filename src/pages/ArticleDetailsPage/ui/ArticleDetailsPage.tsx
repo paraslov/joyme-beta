@@ -7,9 +7,23 @@ import s from './ArticleDetailsPage.module.scss'
 import { Text } from 'shared/ui/Text/Text'
 import { useTranslation } from 'react-i18next'
 import { CommentList } from 'entities/Comment'
+import { ReducersList, useDynamicModuleLoader } from 'shared/lib/DynamicModuleLoader/useDynamicModuleLoader'
+import { useSelector } from 'react-redux'
+import { articleDetailsCommentsReducer, getArticleComments } from '../model/slice/articleDetailsComments'
+import {
+  getArticleDetailsCommentsErrorMessage,
+  getArticleDetailsCommentsIsLoading,
+} from '../model/selectors/articleDetailsCommentsSelectors'
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
+import { fetchArticleDetailsComments } from '../model/services/fetchArticleDetailsComments'
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 
 interface ArticleDetailsPageProps {
   className?: string
+}
+
+const reducers: ReducersList = {
+  articleDetailsComments: articleDetailsCommentsReducer,
 }
 
 const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = (props: ArticleDetailsPageProps) => {
@@ -17,8 +31,19 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = (props: ArticleDet
     className,
   } = props
 
+  useDynamicModuleLoader({ reducers, removeAfterUnmount: true })
+
   const { t } = useTranslation('articleDetails')
   let { id: articleId } = useParams<{id: string}>()
+  const dispatch = useAppDispatch()
+
+  const comments = useSelector(getArticleComments.selectAll)
+  const commentsIsLoading = useSelector(getArticleDetailsCommentsIsLoading)
+  const commentsErrorMessage = useSelector(getArticleDetailsCommentsErrorMessage)
+
+  useInitialEffect(() => {
+    dispatch(fetchArticleDetailsComments(articleId))
+  })
 
   if ($PROJECT === 'storybook') {
     articleId = '1'
@@ -30,26 +55,10 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = (props: ArticleDet
 
       <Text className={ s.commentTitle } title={ t('comments') } />
 
-      <CommentList comments={ [
-        {
-          'id': '1',
-          'text': 'some comment',
-          'user': {
-            id: 1,
-            username: 'sdfjl',
-            avatar: 'https://previews.123rf.com/images/gmast3r/gmast3r1411/gmast3r141100280/33645487-profile-icon-male-avatar-portrait-casual-person.jpg'
-          }
-        },
-        {
-          'id': '2',
-          'text': 'some comment 2',
-          'user': {
-            id: 1,
-            username: 'sdfjl',
-            avatar: 'https://ramahomesltd.com/assets/avatars/profile-pic.jpg'
-          }
-        }
-      ] } />
+      { !commentsErrorMessage
+        ? <CommentList comments={ comments } isLoading={ commentsIsLoading }/>
+        : <Text text={ commentsErrorMessage } />
+      }
     </div>
   )
 }

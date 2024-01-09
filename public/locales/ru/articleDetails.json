@@ -3,6 +3,7 @@
   "articleNotFound": "Статья не найдена",
   "comments": "Комментарии",
   "errors": {
-    "serverErrorMessage": "Сервер не смог успешно запросить статью"
+    "serverErrorMessage": "Сервер не смог успешно запросить статью",
+    "serverErrorMessageComments": "Сервер не смог успешно комментарии к статье"
   }
 }

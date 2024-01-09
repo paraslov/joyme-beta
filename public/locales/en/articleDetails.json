@@ -3,6 +3,7 @@
   "articleNotFound": "Article not found",
   "comments": "Comments",
   "errors": {
-    "serverErrorMessage": "Server couldn't fetch article"
+    "serverErrorMessage": "Server couldn't fetch article",
+    "serverErrorMessageComments": "Server couldn't fetch article comments"
   }
 }
