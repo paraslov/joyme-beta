@@ -3,6 +3,7 @@ import { Currency } from 'entities/CurrencySelect'
 import { ValidateProfileErrors } from './ValidateProfileErrors'
 
 export interface Profile {
+  id?: string,
   firstName?: string
   lastName?: string
   age?: string

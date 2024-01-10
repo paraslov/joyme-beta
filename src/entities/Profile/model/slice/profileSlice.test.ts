@@ -95,7 +95,7 @@ describe('==> profileSlice.test: ', () => {
     }
     const newState = profileReducer(
       state as ProfileSchema,
-      fetchProfileData.rejected(new Error('Error occurred'), '', undefined, 'Error occurred')
+      fetchProfileData.rejected(new Error('Error occurred'), '', '1', 'Error occurred')
     )
 
     expect(newState).toStrictEqual({ isLoading: false, errorMessage: 'Error occurred' })
@@ -118,7 +118,7 @@ describe('==> profileSlice.test: ', () => {
     }
     const newState = profileReducer(
       state as ProfileSchema,
-      fetchProfileData.fulfilled(data, '')
+      fetchProfileData.fulfilled(data, '1', '1')
     )
 
     expect(newState).toStrictEqual({ formData: data, data, isLoading: false })

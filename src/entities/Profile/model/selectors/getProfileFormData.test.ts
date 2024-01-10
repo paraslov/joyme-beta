@@ -4,6 +4,7 @@ import { Currency } from 'entities/CurrencySelect'
 import { Country } from 'entities/CountrySelect'
 
 const data = {
+  id: '1',
   firstName: 'Vasya',
   lastName: 'Pupkin',
   username: 'Uromiru',

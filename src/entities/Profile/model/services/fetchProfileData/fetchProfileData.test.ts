@@ -4,6 +4,7 @@ import { Currency } from 'entities/CurrencySelect'
 import { Country } from 'entities/CountrySelect'
 
 const data = {
+  id: '1',
   firstName: 'Vasya',
   lastName: 'Pupkin',
   username: 'Uromiru',
@@ -17,7 +18,7 @@ describe('fetchProfileData.test: ', () => {
   test('success profile fetch', async () => {
     const thunk = new TestAsyncThunk(fetchProfileData)
     thunk.api.get.mockReturnValue(Promise.resolve({ data: { ...data } }))
-    const result = await thunk.callThunk()
+    const result = await thunk.callThunk('1')
 
     expect(thunk.api.get).toHaveBeenCalled()
     expect(result.meta.requestStatus).toBe('fulfilled')
@@ -27,7 +28,7 @@ describe('fetchProfileData.test: ', () => {
   test('failed profile fetch', async () => {
     const thunk = new TestAsyncThunk(fetchProfileData)
     thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }))
-    const result = await thunk.callThunk()
+    const result = await thunk.callThunk('1')
 
     expect(thunk.api.get).toHaveBeenCalled()
     expect(result.meta.requestStatus).toBe('rejected')

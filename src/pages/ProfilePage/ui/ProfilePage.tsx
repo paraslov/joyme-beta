@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react'
+import React, { useCallback } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
 import { ReducersList, useDynamicModuleLoader } from 'shared/lib/DynamicModuleLoader/useDynamicModuleLoader'
@@ -21,6 +21,10 @@ import { Currency } from 'entities/CurrencySelect'
 import { Country } from 'entities/CountrySelect'
 
 import s from './ProfilePage.module.scss'
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
+import { useNavigate, useParams } from 'react-router-dom'
+import { getUserAuthData } from 'entities/User'
+import { RoutePath } from 'shared/config/routes/routes'
 
 export interface ProfilePageProps {
   className?: string
@@ -39,18 +43,28 @@ const ProfilePage: React.FC<ProfilePageProps> = (props: ProfilePageProps) => {
 
   const { t } = useTranslation('profile')
   const dispatch = useAppDispatch()
+  const { profileId } = useParams<{ profileId: string }>()
+  const authData = useSelector(getUserAuthData)
+  const navigate = useNavigate()
 
   const profileData = useSelector(getProfileFormData)
   const isLoading = useSelector(getProfileIsLoading)
   const errorMessage = useSelector(getProfileError)
   const readOnly = useSelector(getProfileReadonly)
 
-  useEffect(() => {
-    console.log('@> project: ', $PROJECT)
-    if ($PROJECT !== 'storybook') {
-      dispatch(fetchProfileData())
+  const canEdit = authData?.id === profileId
+
+  useInitialEffect(() => {
+    if (profileId === '0' && authData?.id) {
+      navigate(`${RoutePath.profile}/${authData.id}`)
+
+      return
     }
-  }, [ dispatch ])
+
+    if (profileId) {
+      dispatch(fetchProfileData(profileId))
+    }
+  })
 
   const onChangeFirstName = useCallback((value: string) => {
     dispatch(profileActions.updateProfile({ firstName: value }))
@@ -98,7 +112,7 @@ const ProfilePage: React.FC<ProfilePageProps> = (props: ProfilePageProps) => {
 
   return (
     <div className={ classNames(s.profilePage, [ className ]) }>
-      <ProfilePageHeader />
+      <ProfilePageHeader canEdit={ canEdit } />
 
       <ProfileCard
         profileData={ profileData }

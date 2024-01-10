@@ -6,6 +6,8 @@ import s from './CommentCard.module.scss'
 import { Avatar, AvatarSize } from 'shared/ui/Avatar/Avatar'
 import { Text } from 'shared/ui/Text/Text'
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink'
+import { RoutePath } from 'shared/config/routes/routes'
 
 interface CommentCardProps {
   className?: string
@@ -35,13 +37,15 @@ export const CommentCard: React.FC<CommentCardProps> = memo((props: CommentCardP
 
   return (
     <div className={ classNames(s.commentCard, [ className ]) }>
-      <div className={ s.header }>
-        { comment.user.avatar
-          ? <Avatar className={ s.avatar } src={ comment.user.avatar } size={ AvatarSize.SMALL }/>
-          : null
-        }
-        <Text title={ comment.user.username } />
-      </div>
+      <AppLink to={ `${RoutePath.profile}/${comment.user.id}` } theme={ AppLinkTheme.PRIMARY }>
+        <div className={ s.header }>
+          { comment.user.avatar
+            ? <Avatar className={ s.avatar } src={ comment.user.avatar } size={ AvatarSize.SMALL }/>
+            : null
+          }
+          <Text title={ comment.user.username } />
+        </div>
+      </AppLink>
       <Text text={ comment.text } />
     </div>
   )

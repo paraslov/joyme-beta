@@ -5,6 +5,7 @@ import { saveProfileData } from './saveProfileData'
 import { ValidateProfileErrors } from '../../types/ValidateProfileErrors'
 
 const data = {
+  id: '1',
   firstName: 'Vasya',
   lastName: 'Pupkin',
   username: 'Uromiru',
