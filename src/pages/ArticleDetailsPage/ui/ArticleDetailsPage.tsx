@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React, { memo, useCallback } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { ArticleDetails } from 'entities/ArticleDetails'
 import { useParams } from 'react-router-dom'
@@ -17,6 +17,8 @@ import {
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { fetchArticleDetailsComments } from '../model/services/fetchArticleDetailsComments'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
+import { AddCommentForm } from 'features/AddComment'
+import { addCommentForArticle } from '../model/services/addCommentForArticle'
 
 interface ArticleDetailsPageProps {
   className?: string
@@ -45,6 +47,10 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = (props: ArticleDet
     dispatch(fetchArticleDetailsComments(articleId))
   })
 
+  const onSendArticleComment = useCallback((text: string) => {
+    dispatch(addCommentForArticle(text))
+  }, [ dispatch ])
+
   if ($PROJECT === 'storybook') {
     articleId = '1'
   }
@@ -54,6 +60,8 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = (props: ArticleDet
       <ArticleDetails articleId={ articleId } />
 
       <Text className={ s.commentTitle } title={ t('comments') } />
+
+      <AddCommentForm onSendComment={ onSendArticleComment } />
 
       { !commentsErrorMessage
         ? <CommentList comments={ comments } isLoading={ commentsIsLoading }/>

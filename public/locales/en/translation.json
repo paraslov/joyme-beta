@@ -2,7 +2,8 @@
   "language": "RU",
   "btn": {
     "cancelBtn": "Cancel",
-    "saveBtn": "Save"
+    "saveBtn": "Save",
+    "send": "Send"
   },
   "auth": {
     "email": "Enter email",
@@ -37,5 +38,8 @@
   "counter": {
     "increment": "increment",
     "decrement": "decrement"
+  },
+  "comments": {
+    "addCommentPlaceholder": "Type your comment"
   }
 }

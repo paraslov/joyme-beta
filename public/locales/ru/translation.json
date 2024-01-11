@@ -2,7 +2,8 @@
   "language": "EN",
   "btn": {
     "cancelBtn": "Отмена",
-    "saveBtn": "Сохранить"
+    "saveBtn": "Сохранить",
+    "send": "Оправить"
   },
   "auth": {
     "email": "Введите email",
@@ -37,5 +38,8 @@
   "counter": {
     "increment": "прибавить",
     "decrement": "убавить"
+  },
+  "comments": {
+    "addCommentPlaceholder": "Введите ваш комментарий"
   }
 }

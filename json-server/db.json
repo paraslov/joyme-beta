@@ -102,6 +102,24 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "is it works?",
+      "id": "W56gJx9"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "coool, yeeeaah!",
+      "id": "72jU2sf"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "is it the best like comment in the world??? Oh, it is, broh!",
+      "id": "__Mi9UL"
     }
   ],
   "users": [
@@ -130,7 +148,7 @@
       "country": "Kazakhstan",
       "city": "Almaty",
       "username": "joyme112",
-      "avatar": "https://ramahomesltd.com/assets/avatars/profile-pic.jpg"
+      "avatar": "https://static.sadhguru.org/d/46272/1633185964-1633185963177.jpg"
     },
     {
       "id": "2",
@@ -141,7 +159,7 @@
       "country": "Russia",
       "city": "Moscow",
       "username": "admin",
-      "avatar": "https://static.sadhguru.org/d/46272/1633185964-1633185963177.jpg"
+      "avatar": "https://ramahomesltd.com/assets/avatars/profile-pic.jpg"
     }
   ]
 }
