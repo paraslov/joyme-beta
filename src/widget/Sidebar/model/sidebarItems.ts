@@ -1,16 +1,9 @@
-import React from 'react'
 import { RoutePath } from 'shared/config/routes/routes'
 import HomeIcon from 'shared/assets/icons/home.svg'
 import AboutIcon from 'shared/assets/icons/about.svg'
 import ProfileIcon from 'shared/assets/icons/profile.svg'
 import ArticlesIcon from 'shared/assets/icons/articles.svg'
-
-export interface SidebarItemType {
-  route: string
-  text: string
-  authOnly?: boolean
-  Icon: React.VFC<React.SVGProps<SVGSVGElement>>
-}
+import { SidebarItemType } from 'widget/Sidebar/model/types/sidebar'
 
 export const SidebarItemsList: SidebarItemType[] = [
   {
