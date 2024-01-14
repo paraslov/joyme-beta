@@ -11,7 +11,7 @@ import { RoutePath } from 'shared/config/routes/routes'
 
 interface CommentCardProps {
   className?: string
-  comment: CommentDto
+  comment?: CommentDto
   isLoading?: boolean
 }
 
@@ -25,7 +25,7 @@ export const CommentCard: React.FC<CommentCardProps> = memo((props: CommentCardP
   if (isLoading) {
     return (
       <div className={ classNames(s.commentCard, [ className ]) }>
-        <div className={ s.header }>
+        <div className={ classNames(s.header, [ s['headerSkeleton'] ]) }>
           <Skeleton className={ s.avatar } height={ '50px' } width={ '50px' } borderRadius={ '50%' } />
           <Skeleton height={ '28px' } width={ '150px' } />
         </div>
@@ -34,6 +34,8 @@ export const CommentCard: React.FC<CommentCardProps> = memo((props: CommentCardP
       </div>
     )
   }
+
+  if (!comment) return null
 
   return (
     <div className={ classNames(s.commentCard, [ className ]) }>

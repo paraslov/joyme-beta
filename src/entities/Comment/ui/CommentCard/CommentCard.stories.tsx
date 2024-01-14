@@ -1,5 +1,5 @@
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import { CommentCard } from './CommentCard'
 
@@ -16,7 +16,14 @@ const Template: ComponentStory<typeof CommentCard> = (args) => <div style={ { wi
 </div>
 
 export const Primary = Template.bind({})
-Primary.args = {}
-Primary.decorators = []
-
+Primary.args = {
+  comment: {
+    id: '1',
+    text: 'Some comment of mine',
+    user: {
+      id: 1,
+      username: 'MyUserName',
+    }
+  },
+}
 

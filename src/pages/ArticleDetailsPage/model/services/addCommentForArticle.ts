@@ -16,7 +16,7 @@ export const addCommentForArticle = createAsyncThunk<CommentDto[], string, Thunk
       const article = getArticleDetailsArticle(getState())
 
       if (!authData || !text || !article) {
-        return rejectWithValue('no data')
+        return rejectWithValue('No data')
       }
 
       const response = await extra.api.post<CommentDto[]>('/comments', {

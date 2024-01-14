@@ -20,6 +20,16 @@ export const CommentList: React.FC<CommentListProps> = memo((props: CommentListP
 
   const { t } = useTranslation()
 
+  if (isLoading) {
+    return (
+      <div className={ classNames('', [ className ]) }>
+        <CommentCard isLoading />
+        <CommentCard isLoading />
+        <CommentCard isLoading />
+      </div>
+    )
+  }
+
   return (
     <div className={ classNames('', [ className ]) }>
       {
@@ -27,7 +37,6 @@ export const CommentList: React.FC<CommentListProps> = memo((props: CommentListP
           ? comments.map((comment) => <CommentCard
             key={ comment.id }
             comment={ comment }
-            isLoading={ isLoading }
           />)
           : <Text text={ t('common.noComments') } />
       }

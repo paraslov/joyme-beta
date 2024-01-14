@@ -1,9 +1,13 @@
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import AddCommentForm from './AddCommentForm'
+import { action } from '@storybook/addon-actions'
+import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator'
+import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator'
+import { Theme } from 'app/providers/ThemeProvider'
 
-const groupName = 'shared'
+const groupName = 'features'
 const containerWidth = '600px'
 
 export default {
@@ -16,7 +20,22 @@ const Template: ComponentStory<typeof AddCommentForm> = (args) => <div style={ {
 </div>
 
 export const Primary = Template.bind({})
-Primary.args = {}
-Primary.decorators = []
+Primary.args = {
+  onSendComment: action('onSendComment')
+}
+Primary.decorators = [
+  StoreDecorator({
+    addComments: {},
+  })
+]
 
-
+export const PrimaryPink = Template.bind({})
+PrimaryPink.args = {
+  onSendComment: action('onSendComment')
+}
+PrimaryPink.decorators = [
+  StoreDecorator({
+    addComments: {},
+  }),
+  ThemeDecorator(Theme.PINK),
+]

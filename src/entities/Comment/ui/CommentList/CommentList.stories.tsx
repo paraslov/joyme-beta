@@ -1,7 +1,9 @@
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import { CommentList } from './CommentList'
+import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator'
+import { Theme } from 'app/providers/ThemeProvider'
 
 const groupName = 'shared'
 const containerWidth = '600px'
@@ -16,7 +18,38 @@ const Template: ComponentStory<typeof CommentList> = (args) => <div style={ { wi
 </div>
 
 export const Primary = Template.bind({})
-Primary.args = {}
-Primary.decorators = []
+Primary.args = {
+  comments: [
+    {
+      id: '1',
+      text: 'Some comment of mine',
+      user: {
+        id: 1,
+        username: 'MyUserName',
+      }
+    },
+    {
+      id: '2',
+      text: 'Some comment of mine, lul',
+      user: {
+        id: 2,
+        username: 'MyUserName22',
+      }
+    },
+  ]
+}
 
+export const IsLoading = Template.bind({})
+IsLoading.args = {
+  comments: [],
+  isLoading: true,
+}
 
+export const IsLoadingPink = Template.bind({})
+IsLoadingPink.args = {
+  comments: [],
+  isLoading: true,
+}
+IsLoadingPink.decorators = [
+  ThemeDecorator(Theme.PINK)
+]
