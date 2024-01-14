@@ -1,13 +1,12 @@
-import React, { memo, useMemo, useState } from 'react'
+import React, { memo, useState } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Button, ButtonSize } from 'shared/ui/Button/Button'
 import { LanguageSwitcher } from 'widget/LanguageSwitcher'
-import { SidebarItemsList } from '../../model/sidebarItems'
 import { SidebarItem } from '../SidebarItem/SidebarItem'
 
 import s from './Sidebar.module.scss'
 import { useSelector } from 'react-redux'
-import { getUserAuthData } from 'entities/User'
+import { getSidebarItems } from '../../model/selectors/getSidebarItems'
 
 interface SidebarProps {
   className?: string
@@ -15,14 +14,11 @@ interface SidebarProps {
 
 export const Sidebar = memo(({ className }: SidebarProps) => {
   const [ collapsed, setCollapsed ] = useState(false)
-  const isAuth = useSelector(getUserAuthData)
+  const SidebarItemsList = useSelector(getSidebarItems)
 
   const onToggleCollapsed = () => {
     setCollapsed(prevState => !prevState)
   }
-
-  const sidebarItemsList = useMemo(() => SidebarItemsList
-    .filter((sidebarItem) => !(!isAuth && sidebarItem.authOnly)), [ isAuth ])
 
   return (
     <div
@@ -41,7 +37,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
       { /*<_BugButton />*/ }
       <div className={ s.links }>
         {
-          sidebarItemsList.map((item) => {
+          SidebarItemsList.map((item) => {
             return <SidebarItem key={ item.route } item={ item } collapsed={ collapsed } />
           })
         }
