@@ -1,4 +1,4 @@
-import { ArticleBlockType, ArticleType, Article } from '../types/Article'
+import { Article, ArticleBlockType, ArticleType } from '../types/Article'
 
 export const articleDetailsMock: Article = {
   'id': '1',
@@ -7,7 +7,7 @@ export const articleDetailsMock: Article = {
   'img': 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
   'views': 1022,
   'createdAt': '26.02.2022',
-  'type': [ ArticleType.IT ],
+  'type': [ ArticleType.IT, ArticleType.ECONOMICS, ArticleType.SCIENCE ],
   'blocks': [
     {
       'id': '1',
