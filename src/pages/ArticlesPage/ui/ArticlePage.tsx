@@ -1,8 +1,6 @@
 import React, { memo } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
-import { useTranslation } from 'react-i18next'
 
-import s from './ArticlePage.module.scss'
 import { ArticleList } from 'entities/ArticleDetails'
 
 interface ArticlePageProps {
@@ -14,10 +12,8 @@ const ArticlePage: React.FC<ArticlePageProps> = (props: ArticlePageProps) => {
     className,
   } = props
 
-  const { t } = useTranslation('articles')
-
   return (
-    <div className={ classNames(s.articlePage, [ className, s.table ]) }>
+    <div className={ classNames('', [ className ]) }>
       <ArticleList />
     </div>
   )
