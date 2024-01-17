@@ -1,7 +1,7 @@
 import React, { memo, useCallback } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { ArticleDetails } from 'entities/ArticleDetails'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 import s from './ArticleDetailsPage.module.scss'
 import { Text } from 'shared/ui/Text/Text'
@@ -19,6 +19,8 @@ import { fetchArticleDetailsComments } from '../model/services/fetchArticleDetai
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { AddCommentForm } from 'features/AddComment'
 import { addCommentForArticle } from '../model/services/addCommentForArticle'
+import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button'
+import { RoutePath } from 'shared/config/routes/routes'
 
 interface ArticleDetailsPageProps {
   className?: string
@@ -38,6 +40,7 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = (props: ArticleDet
   const { t } = useTranslation('articleDetails')
   let { id: articleId } = useParams<{id: string}>()
   const dispatch = useAppDispatch()
+  const navigate = useNavigate()
 
   const comments = useSelector(getArticleComments.selectAll)
   const commentsIsLoading = useSelector(getArticleDetailsCommentsIsLoading)
@@ -46,6 +49,10 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = (props: ArticleDet
   useInitialEffect(() => {
     dispatch(fetchArticleDetailsComments(articleId))
   })
+
+  const onBackToList = useCallback(() => {
+    navigate(RoutePath.articles)
+  }, [ navigate ])
 
   const onSendArticleComment = useCallback((text: string) => {
     dispatch(addCommentForArticle(text))
@@ -57,6 +64,10 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = (props: ArticleDet
 
   return (
     <div className={ classNames(s.articleDetailsPage, [ className ]) }>
+      <Button theme={ ButtonTheme.OUTLINE } size={ ButtonSize.M } onClick={ onBackToList }>
+        { t('btns.backToList') }
+      </Button>
+
       <ArticleDetails articleId={ articleId } />
 
       <Text className={ s.commentTitle } title={ t('comments') } />

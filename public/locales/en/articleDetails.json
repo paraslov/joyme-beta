@@ -3,6 +3,10 @@
   "articleNotFound": "Article not found",
   "noArticles": "There are no articles yet",
   "comments": "Comments",
+  "btns": {
+    "readMore": "Read more...",
+    "backToList": "Back to list"
+  },
   "errors": {
     "serverErrorMessage": "Server couldn't fetch article",
     "serverErrorMessageComments": "Server couldn't fetch article comments"

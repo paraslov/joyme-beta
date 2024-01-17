@@ -2,6 +2,11 @@ import { Article, ArticleBlockType, ArticleType } from '../types/Article'
 
 export const articleDetailsMock: Article = {
   'id': '1',
+  user: {
+    id: 1,
+    username: 'JoyMe',
+    avatar: 'https://static.sadhguru.org/d/46272/1633185964-1633185963177.jpg',
+  },
   'title': 'Javascript news',
   'subtitle': 'Что нового в JS за 2022 год?',
   'img': 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
