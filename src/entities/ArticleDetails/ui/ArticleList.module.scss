@@ -1,0 +1,15 @@
+.table {
+  display: flex;
+  flex-wrap: wrap;
+
+  .articleCard {
+    margin-right: 30px;
+    margin-bottom: 30px;
+  }
+}
+
+.list {
+  .articleCard {
+    margin-bottom: 30px;
+  }
+}

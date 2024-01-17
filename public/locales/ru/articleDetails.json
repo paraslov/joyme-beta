@@ -1,7 +1,12 @@
 {
   "title": "Статья",
   "articleNotFound": "Статья не найдена",
+  "noArticles": "Статей пока не добавлено",
   "comments": "Комментарии",
+  "btns": {
+    "readMore": "Читать далее...",
+    "backToList": "Назад к списку"
+  },
   "errors": {
     "serverErrorMessage": "Сервер не смог успешно запросить статью",
     "serverErrorMessageComments": "Сервер не смог успешно комментарии к статье"
