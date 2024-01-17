@@ -7,6 +7,7 @@ import { Article, ArticleListViewType } from '../model/types/Article'
 import { ArticleListItem } from './components/ArticleListItem/ArticleListItem'
 import { Text } from 'shared/ui/Text/Text'
 import { articleDetailsMock } from 'entities/ArticleDetails/model/mock/articleDetailsMock'
+import { ArticleListItemSkeleton } from './components/ArticleListItem/ArticleListItemSkeleton'
 
 interface ArticleListProps {
   className?: string
@@ -15,17 +16,29 @@ interface ArticleListProps {
   viewType?: ArticleListViewType
 }
 
-// 23.30
+function getSkeletons(viewType: ArticleListViewType) {
+  return Array(viewType === ArticleListViewType.LIST ? 4 : 12).fill(0).map((_, index) => {
+    return <ArticleListItemSkeleton className={ s.articleCard } key={ index } view={ viewType } />
+  })
+}
 
 export const ArticleList: React.FC<ArticleListProps> = memo((props: ArticleListProps) => {
   const {
     className,
     articles = Array(16).fill(0).map((item, i) => ({ ...articleDetailsMock, id: String(i) })),
     isLoading,
-    viewType = ArticleListViewType.TABLE,
+    viewType = ArticleListViewType.LIST,
   } = props
 
   const { t } = useTranslation('articleDetails')
+
+  if (isLoading) {
+    return (
+      <div className={ classNames(s.articleList, [ className, s[viewType] ]) }>
+        { getSkeletons(viewType) }
+      </div>
+    )
+  }
 
   const renderArticle = (article: Article) => {
     return <ArticleListItem className={ s.articleCard } article={ article } view={ viewType } key={ article.id } />
