@@ -1,10 +1,14 @@
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import { ArticleListItem } from './ArticleListItem'
+import { articleDetailsMock } from 'entities/ArticleDetails/model/mock/articleDetailsMock'
+import { ArticleListViewType } from 'entities/ArticleDetails'
+import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator'
+import { Theme } from 'app/providers/ThemeProvider'
 
-const groupName = 'shared'
-const containerWidth = '600px'
+const groupName = 'entities'
+const containerWidth = '1000px'
 
 export default {
   title: `${groupName}/ArticleListItem`,
@@ -15,8 +19,34 @@ const Template: ComponentStory<typeof ArticleListItem> = (args) => <div style={ 
   <ArticleListItem { ...args } />
 </div>
 
-export const Primary = Template.bind({})
-Primary.args = {}
-Primary.decorators = []
+export const TableView = Template.bind({})
+TableView.args = {
+  article: articleDetailsMock,
+  view: ArticleListViewType.TABLE,
+}
+
+export const ListView = Template.bind({})
+ListView.args = {
+  article: articleDetailsMock,
+  view: ArticleListViewType.LIST,
+}
+
+export const TableViewPink = Template.bind({})
+TableViewPink.args = {
+  article: articleDetailsMock,
+  view: ArticleListViewType.TABLE,
+}
+TableViewPink.decorators = [
+  ThemeDecorator(Theme.PINK),
+]
+
+export const ListViewLight = Template.bind({})
+ListViewLight.args = {
+  article: articleDetailsMock,
+  view: ArticleListViewType.LIST,
+}
+ListViewLight.decorators = [
+  ThemeDecorator(Theme.LIGHT),
+]
 
 

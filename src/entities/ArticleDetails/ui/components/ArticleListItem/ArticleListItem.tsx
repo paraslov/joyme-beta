@@ -63,7 +63,7 @@ export const ArticleListItem: React.FC<ArticleListItemProps> = memo((props: Arti
     <div className={ classNames(s.articleListItem, [ className, s[view] ]) }>
       <Card>
         <div className={ s.header }>
-          <Avatar src={ article.user.avatar } size={ AvatarSize.SMALL } />
+          <Avatar src={ article.user.avatar } alt={ article.title } size={ AvatarSize.SMALL } />
           <Text className={ s.username } text={ article.user.username } textSize={ TextSize.SMALL } />
           <Text className={ s.date } text={ article.createdAt } textSize={ TextSize.SMALL } />
         </div>
