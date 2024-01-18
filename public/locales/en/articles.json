@@ -1,3 +1,6 @@
 {
-  "title": "Article page title"
+  "title": "Article page title",
+  "errors": {
+    "fetchArticlesList": "Failed to fetch articles list"
+  }
 }
