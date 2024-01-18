@@ -1,9 +1,13 @@
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import { ArticlesPageViewSelector } from './ArticlesPageViewSelector'
+import { ArticleListViewType } from 'entities/ArticleDetails'
+import { action } from '@storybook/addon-actions'
+import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator'
+import { Theme } from 'app/providers/ThemeProvider'
 
-const groupName = 'shared'
+const groupName = 'feature'
 const containerWidth = '600px'
 
 export default {
@@ -15,8 +19,19 @@ const Template: ComponentStory<typeof ArticlesPageViewSelector> = (args) => <div
   <ArticlesPageViewSelector { ...args } />
 </div>
 
-export const Primary = Template.bind({})
-Primary.args = {}
-Primary.decorators = []
+export const ListView = Template.bind({})
+ListView.args = {
+  view: ArticleListViewType.LIST,
+  onViewChange: action('onViewChange')
+}
+
+export const TableViewPink = Template.bind({})
+TableViewPink.args = {
+  view: ArticleListViewType.TABLE,
+  onViewChange: action('onViewChange')
+}
+TableViewPink.decorators = [
+  ThemeDecorator(Theme.PINK)
+]
 
 
