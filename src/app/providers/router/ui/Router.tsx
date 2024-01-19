@@ -11,11 +11,9 @@ const Router = () => {
       path={ route.path }
       element={
         <RequireAuth authOnly={ route.authOnly }>
-          <div className={ 'page-wrapper' }>
-            <Suspense fallback={ <Preloader left={ '50%' } top={ '50%' } /> }>
-              { route.element }
-            </Suspense>
-          </div>
+          <Suspense fallback={ <Preloader left={ '50%' } top={ '50%' } /> }>
+            { route.element }
+          </Suspense>
         </RequireAuth>
       }
     />

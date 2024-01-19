@@ -32,14 +32,6 @@ export const ArticleList: React.FC<ArticleListProps> = memo((props: ArticleListP
 
   const { t } = useTranslation('articleDetails')
 
-  if (isLoading) {
-    return (
-      <div className={ classNames(s.articleList, [ className, s[viewType] ]) }>
-        { getSkeletons(viewType) }
-      </div>
-    )
-  }
-
   const renderArticle = (article: Article) => {
     return <ArticleListItem className={ s.articleCard } article={ article } view={ viewType } key={ article.id } />
   }
@@ -47,8 +39,9 @@ export const ArticleList: React.FC<ArticleListProps> = memo((props: ArticleListP
     <div className={ classNames(s.articleList, [ className, s[viewType] ]) }>
       { articles.length > 0
         ? articles.map(renderArticle)
-        : <Text text={ t('noArticles') } />
+        : !isLoading && <Text text={ t('noArticles') } />
       }
+      { isLoading && getSkeletons(viewType) }
     </div>
   )
 })

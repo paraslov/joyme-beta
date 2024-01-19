@@ -36,7 +36,7 @@ export const Topbar = memo(({ className }: NavbarProps) => {
 
   if (authData) {
     return (
-      <div className={ classNames(s.topbar, [ className ]) }>
+      <header className={ classNames(s.topbar, [ className ]) }>
         <ThemeSwitcher className={ s.themeToggler } />
 
         <div className={ s.appName }>
@@ -49,12 +49,12 @@ export const Topbar = memo(({ className }: NavbarProps) => {
         >
           { t('topbar.logout') }
         </Button>
-      </div>
+      </header>
     )
   }
 
   return (
-    <div className={ classNames(s.topbar, [ className ]) }>
+    <header className={ classNames(s.topbar, [ className ]) }>
       <ThemeSwitcher className={ s.themeToggler } />
 
       <div className={ s.appName }>
@@ -69,6 +69,6 @@ export const Topbar = memo(({ className }: NavbarProps) => {
       </Button>
 
       { isMounted ? <LoginModal isOpen={ isOpen } onClose={ closeModal } /> : null }
-    </div>
+    </header>
   )
 })

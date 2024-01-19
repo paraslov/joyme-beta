@@ -21,6 +21,7 @@ import { AddCommentForm } from 'features/AddComment'
 import { addCommentForArticle } from '../model/services/addCommentForArticle'
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button'
 import { RoutePath } from 'shared/config/routes/routes'
+import { PageWrapper } from 'widget/PageWrapper/PageWrapper'
 
 interface ArticleDetailsPageProps {
   className?: string
@@ -63,7 +64,7 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = (props: ArticleDet
   }
 
   return (
-    <div className={ classNames(s.articleDetailsPage, [ className ]) }>
+    <PageWrapper className={ classNames(s.articleDetailsPage, [ className ]) }>
       <Button theme={ ButtonTheme.OUTLINE } size={ ButtonSize.M } onClick={ onBackToList }>
         { t('btns.backToList') }
       </Button>
@@ -78,7 +79,7 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = (props: ArticleDet
         ? <CommentList comments={ comments } isLoading={ commentsIsLoading }/>
         : <Text text={ commentsErrorMessage } />
       }
-    </div>
+    </PageWrapper>
   )
 }
 

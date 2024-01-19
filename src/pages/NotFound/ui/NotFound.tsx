@@ -1,13 +1,14 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
+import { PageWrapper } from 'widget/PageWrapper/PageWrapper'
 
 const NotFound = (props: any) => {
   const { t } = useTranslation()
 
   return (
-    <div>
+    <PageWrapper>
       { t('common.notFound') }
-    </div>
+    </PageWrapper>
   )
 }
 
