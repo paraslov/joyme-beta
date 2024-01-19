@@ -7,12 +7,14 @@ import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfinit
 interface PageWrapperProps {
   className?: string
   children: ReactNode
+  onScrollEnd?: () => void
 }
 
 export const PageWrapper: React.FC<PageWrapperProps> = memo((props: PageWrapperProps) => {
   const {
     className,
     children,
+    onScrollEnd,
   } = props
 
   const wrapperRef = useRef() as MutableRefObject<HTMLElement>
@@ -21,7 +23,7 @@ export const PageWrapper: React.FC<PageWrapperProps> = memo((props: PageWrapperP
   useInfiniteScroll({
     triggerRef,
     wrapperRef,
-    callback: () => console.log('use infinite')
+    callback: onScrollEnd
   })
 
   return (

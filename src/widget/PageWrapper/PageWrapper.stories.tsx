@@ -2,8 +2,9 @@ import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
 import { PageWrapper } from './PageWrapper'
+import { action } from '@storybook/addon-actions'
 
-const groupName = 'shared'
+const groupName = 'widget'
 const containerWidth = '600px'
 
 export default {
@@ -12,11 +13,12 @@ export default {
 } as ComponentMeta<typeof PageWrapper>
 
 const Template: ComponentStory<typeof PageWrapper> = (args) => <div style={ { width: containerWidth } }>
-  <PageWrapper { ...args } />
+  <PageWrapper { ...args }>some page content</PageWrapper>
 </div>
 
 export const Primary = Template.bind({})
-Primary.args = {}
-Primary.decorators = []
+Primary.args = {
+  onScrollEnd: action('onScrollEnd')
+}
 
 

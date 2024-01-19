@@ -2,6 +2,7 @@ import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
 import ArticlePage from './ArticlePage'
+import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator'
 
 const groupName = 'page'
 const containerWidth = '600px'
@@ -15,5 +16,14 @@ const Template: ComponentStory<typeof ArticlePage> = (args) => <div style={ { wi
   <ArticlePage { ...args } />
 </div>
 
-export const Primary = Template.bind({})
-Primary.args = {}
+export const IsLoading = Template.bind({})
+IsLoading.args = {}
+IsLoading.decorators = [
+  StoreDecorator({
+    articlesPage: {
+      ids: [ 1, 2 ],
+      entities: {},
+      isLoading: true,
+    }
+  })
+]
