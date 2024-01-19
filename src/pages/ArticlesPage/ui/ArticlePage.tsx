@@ -10,6 +10,7 @@ import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticl
 import { useSelector } from 'react-redux'
 import { getArticlesErrorMessage, getArticlesIsLoading, getArticlesView } from '../model/selectors/articlesPage'
 import { ArticlesPageViewSelector } from 'features/ArticlesPageViewSelector'
+import { PageWrapper } from 'widget/PageWrapper/PageWrapper'
 
 interface ArticlePageProps {
   className?: string
@@ -32,8 +33,8 @@ const ArticlePage: React.FC<ArticlePageProps> = (props: ArticlePageProps) => {
 
   useDynamicModuleLoader({ reducers, removeAfterUnmount: true })
   useInitialEffect(() => {
-    dispatch(fetchArticlesList())
     dispatch(articlesPageActions.initState())
+    dispatch(fetchArticlesList({ page: 1 }))
   })
 
   const onViewChange = useCallback((view: ArticleListViewType) => {
@@ -41,10 +42,10 @@ const ArticlePage: React.FC<ArticlePageProps> = (props: ArticlePageProps) => {
   }, [ dispatch ])
 
   return (
-    <div className={ classNames('', [ className ]) }>
+    <PageWrapper className={ classNames('', [ className ]) }>
       <ArticlesPageViewSelector view={ viewType } onViewChange={ onViewChange } />
       <ArticleList articles={ articles } isLoading={ isLoading } viewType={ viewType } />
-    </div>
+    </PageWrapper>
   )
 }
 

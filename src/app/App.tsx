@@ -18,11 +18,11 @@ const App = () => {
 
   return (
     <div id={ 'appId' } className={ classNames('app', [ theme ]) }>
-      <Topbar/>
+      <Topbar />
 
       <div className={ 'content-page' }>
-        <Sidebar/>
-        { isInitialized ? <Router/> : null }
+        <Sidebar />
+        { isInitialized ? <Router /> : null }
       </div>
     </div>
   )

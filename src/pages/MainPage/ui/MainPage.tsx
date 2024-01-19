@@ -1,12 +1,13 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
+import { PageWrapper } from 'widget/PageWrapper/PageWrapper'
 
 const MainPage = (props: any) => {
   const { t } = useTranslation('main')
   return (
-    <div>
+    <PageWrapper>
       { t('title') }
-    </div>
+    </PageWrapper>
   )
 }
 

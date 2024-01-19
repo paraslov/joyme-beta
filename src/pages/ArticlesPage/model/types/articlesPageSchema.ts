@@ -5,4 +5,8 @@ export interface ArticlesPageSchema extends EntityState<Article> {
   isLoading?: boolean
   errorMessage?: string
   view: ArticleListViewType
+  // pagination
+  page: number
+  limit?: number
+  hasMore: boolean
 }

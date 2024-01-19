@@ -25,6 +25,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { useNavigate, useParams } from 'react-router-dom'
 import { getUserAuthData } from 'entities/User'
 import { RoutePath } from 'shared/config/routes/routes'
+import { PageWrapper } from 'widget/PageWrapper/PageWrapper'
 
 export interface ProfilePageProps {
   className?: string
@@ -99,19 +100,19 @@ const ProfilePage: React.FC<ProfilePageProps> = (props: ProfilePageProps) => {
   }, [ dispatch ])
 
   if (isLoading) {
-    return <div className={ classNames(s.profilePage, [ className, s.isLoading ]) }>
+    return <PageWrapper className={ classNames(s.profilePage, [ className, s.isLoading ]) }>
       <Preloader />
-    </div>
+    </PageWrapper>
   }
 
   if (errorMessage) {
-    return <div className={ classNames(s.profilePage, [ className, s.errorMessage ]) }>
+    return <PageWrapper className={ classNames(s.profilePage, [ className, s.errorMessage ]) }>
       <Text title={ t('profileError') } text={ errorMessage } textAlign={ TextAlign.CENTER } />
-    </div>
+    </PageWrapper>
   }
 
   return (
-    <div className={ classNames(s.profilePage, [ className ]) }>
+    <PageWrapper className={ classNames(s.profilePage, [ className ]) }>
       <ProfilePageHeader canEdit={ canEdit } />
 
       <ProfileCard
@@ -128,7 +129,7 @@ const ProfilePage: React.FC<ProfilePageProps> = (props: ProfilePageProps) => {
         onChangeCurrency={ onChangeCurrency }
         onChangeCountry={ onChangeCountry }
       />
-    </div>
+    </PageWrapper>
   )
 }
 
