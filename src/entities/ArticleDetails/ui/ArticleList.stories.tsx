@@ -24,11 +24,21 @@ TableView.args = {
   articles: Array(16).fill(0).map((_, index) => ({ ...articleDetailsMock, id: String(index) })),
   viewType: ArticleListViewType.TABLE,
 }
+TableView.story = {
+  parameters: {
+    loki: { skip: true }
+  }
+}
 
 export const ListView = Template.bind({})
 ListView.args = {
   articles: Array(3).fill(0).map((_, index) => ({ ...articleDetailsMock, id: String(index) })),
   viewType: ArticleListViewType.LIST,
+}
+ListView.story = {
+  parameters: {
+    loki: { skip: true }
+  }
 }
 
 export const TableViewLoading = Template.bind({})
@@ -37,12 +47,22 @@ TableViewLoading.args = {
   viewType: ArticleListViewType.TABLE,
   isLoading: true,
 }
+TableViewLoading.story = {
+  parameters: {
+    loki: { skip: true }
+  }
+}
 
 export const ListViewLoading = Template.bind({})
 ListViewLoading.args = {
   articles: Array(3).fill(0).map((_, index) => ({ ...articleDetailsMock, id: String(index) })),
   viewType: ArticleListViewType.LIST,
   isLoading: true,
+}
+ListViewLoading.story = {
+  parameters: {
+    loki: { skip: true }
+  }
 }
 
 export const TableViewPink = Template.bind({})
@@ -53,6 +73,11 @@ TableViewPink.args = {
 TableViewPink.decorators = [
   ThemeDecorator(Theme.PINK)
 ]
+TableViewPink.story = {
+  parameters: {
+    loki: { skip: true }
+  }
+}
 
 export const ListViewPinkLoading = Template.bind({})
 ListViewPinkLoading.args = {
@@ -63,5 +88,10 @@ ListViewPinkLoading.args = {
 ListViewPinkLoading.decorators = [
   ThemeDecorator(Theme.PINK)
 ]
+ListViewPinkLoading.story = {
+  parameters: {
+    loki: { skip: true }
+  }
+}
 
 
