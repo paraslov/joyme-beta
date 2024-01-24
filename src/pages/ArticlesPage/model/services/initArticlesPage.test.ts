@@ -28,7 +28,7 @@ describe('initArticlesPage.ts.test: ', () => {
     const thunk = new TestAsyncThunk(initArticlesPage, {
       articlesPage: {
         page: 2,
-        ids: [ '1' ],
+        ids: [ 1 ],
         entities: {
           '1': {
             ...articleDetailsMock,
