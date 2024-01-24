@@ -6,12 +6,12 @@ import { ReducersList, useDynamicModuleLoader } from 'shared/lib/DynamicModuleLo
 import { articlesPageActions, articlesPageReducer, getArticles } from '../model/slice/articlesPage'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
-import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticlesList'
 import { useSelector } from 'react-redux'
 import { getArticlesErrorMessage, getArticlesIsLoading, getArticlesView } from '../model/selectors/articlesPage'
 import { ArticlesPageViewSelector } from 'features/ArticlesPageViewSelector'
 import { PageWrapper } from 'widget/PageWrapper/PageWrapper'
-import { fetchNextArticlesPack } from 'pages/ArticlesPage/model/services/fetchNextArticlesPack'
+import { fetchNextArticlesPack } from '../model/services/fetchNextArticlesPack'
+import { initArticlesPage } from '../model/services/initArticlesPage'
 
 interface ArticlePageProps {
   className?: string
@@ -32,10 +32,9 @@ const ArticlePage: React.FC<ArticlePageProps> = (props: ArticlePageProps) => {
   const errorMessage = useSelector(getArticlesErrorMessage)
   const viewType = useSelector(getArticlesView)
 
-  useDynamicModuleLoader({ reducers, removeAfterUnmount: true })
+  useDynamicModuleLoader({ reducers })
   useInitialEffect(() => {
-    dispatch(articlesPageActions.initState())
-    dispatch(fetchArticlesList({ page: 1 }))
+    dispatch(initArticlesPage())
   })
 
   const loadNextArticlesPart = useCallback(() => {
