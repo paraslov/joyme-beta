@@ -8,10 +8,12 @@ import { ArticleSchema } from 'entities/ArticleDetails'
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage'
 import { AddCommentSchema } from 'features/AddComment'
 import { ArticlesPageSchema } from 'pages/ArticlesPage'
+import { PageWrapperSchema } from 'widget/PageWrapper'
 
 export interface StateSchema {
   counter: CounterSchema,
   user: UserSchema,
+  pageWrapper: PageWrapperSchema,
 
   // async reducers
   authForm?: AuthSchema,
