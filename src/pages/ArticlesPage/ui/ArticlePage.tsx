@@ -9,7 +9,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { useSelector } from 'react-redux'
 import { getArticlesErrorMessage, getArticlesIsLoading, getArticlesView } from '../model/selectors/articlesPage'
 import { ArticlesPageViewSelector } from 'features/ArticlesPageViewSelector'
-import { PageWrapper } from 'widget/PageWrapper/PageWrapper'
+import { PageWrapper } from 'widget/PageWrapper'
 import { fetchNextArticlesPack } from '../model/services/fetchNextArticlesPack'
 import { initArticlesPage } from '../model/services/initArticlesPage'
 
@@ -46,7 +46,11 @@ const ArticlePage: React.FC<ArticlePageProps> = (props: ArticlePageProps) => {
   }, [ dispatch ])
 
   return (
-    <PageWrapper onScrollEnd={ loadNextArticlesPart } className={ classNames('', [ className ]) }>
+    <PageWrapper
+      onScrollEnd={ loadNextArticlesPart }
+      className={ classNames('', [ className ]) }
+      shouldSaveScrollPosition
+    >
       <ArticlesPageViewSelector view={ viewType } onViewChange={ onViewChange } />
       <ArticleList articles={ articles } isLoading={ isLoading } viewType={ viewType } />
     </PageWrapper>

@@ -21,7 +21,7 @@ import { AddCommentForm } from 'features/AddComment'
 import { addCommentForArticle } from '../model/services/addCommentForArticle'
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button'
 import { RoutePath } from 'shared/config/routes/routes'
-import { PageWrapper } from 'widget/PageWrapper/PageWrapper'
+import { PageWrapper } from 'widget/PageWrapper'
 
 interface ArticleDetailsPageProps {
   className?: string

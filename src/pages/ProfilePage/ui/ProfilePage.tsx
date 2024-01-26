@@ -25,7 +25,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { useNavigate, useParams } from 'react-router-dom'
 import { getUserAuthData } from 'entities/User'
 import { RoutePath } from 'shared/config/routes/routes'
-import { PageWrapper } from 'widget/PageWrapper/PageWrapper'
+import { PageWrapper } from 'widget/PageWrapper'
 
 export interface ProfilePageProps {
   className?: string
