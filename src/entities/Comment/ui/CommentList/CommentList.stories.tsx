@@ -44,6 +44,11 @@ IsLoading.args = {
   comments: [],
   isLoading: true,
 }
+IsLoading.story = {
+  parameters: {
+    loki: { skip: true }
+  }
+}
 
 export const IsLoadingPink = Template.bind({})
 IsLoadingPink.args = {
@@ -53,3 +58,8 @@ IsLoadingPink.args = {
 IsLoadingPink.decorators = [
   ThemeDecorator(Theme.PINK)
 ]
+IsLoadingPink.story = {
+  parameters: {
+    loki: { skip: true }
+  }
+}

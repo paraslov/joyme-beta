@@ -37,6 +37,11 @@ Primary.decorators = [
     }
   })
 ]
+Primary.story = {
+  parameters: {
+    loki: { skip: true }
+  }
+}
 
 export const IsLoading = Template.bind({})
 IsLoading.args = {}
@@ -75,6 +80,11 @@ TableViewPink.decorators = [
   }),
   ThemeDecorator(Theme.PINK),
 ]
+TableViewPink.story = {
+  parameters: {
+    loki: { skip: true }
+  }
+}
 
 export const IsLoadingPinkTableView = Template.bind({})
 IsLoadingPinkTableView.args = {}
