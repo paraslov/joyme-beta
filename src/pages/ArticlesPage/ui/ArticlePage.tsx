@@ -46,7 +46,11 @@ const ArticlePage: React.FC<ArticlePageProps> = (props: ArticlePageProps) => {
   }, [ dispatch ])
 
   return (
-    <PageWrapper onScrollEnd={ loadNextArticlesPart } className={ classNames('', [ className ]) }>
+    <PageWrapper
+      onScrollEnd={ loadNextArticlesPart }
+      className={ classNames('', [ className ]) }
+      shouldSaveScrollPosition
+    >
       <ArticlesPageViewSelector view={ viewType } onViewChange={ onViewChange } />
       <ArticleList articles={ articles } isLoading={ isLoading } viewType={ viewType } />
     </PageWrapper>

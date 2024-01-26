@@ -14,6 +14,7 @@ import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle'
 interface PageWrapperProps {
   className?: string
   children: ReactNode
+  shouldSaveScrollPosition?: boolean
   onScrollEnd?: () => void
 }
 
@@ -21,6 +22,7 @@ export const PageWrapper: React.FC<PageWrapperProps> = memo((props: PageWrapperP
   const {
     className,
     children,
+    shouldSaveScrollPosition,
     onScrollEnd,
   } = props
 
@@ -32,7 +34,7 @@ export const PageWrapper: React.FC<PageWrapperProps> = memo((props: PageWrapperP
   const scrollData = useSelector(getScrollPositions)
 
   useInitialEffect(() => {
-    wrapperRef.current.scrollTop = scrollData[pathname]
+    wrapperRef.current.scrollTop = scrollData[pathname] ?? 0
   })
   useInfiniteScroll({
     triggerRef,
@@ -48,7 +50,11 @@ export const PageWrapper: React.FC<PageWrapperProps> = memo((props: PageWrapperP
   }, 300)
 
   return (
-    <section onScroll={ onScrollHandle } ref={ wrapperRef } className={ classNames(s.pageWrapper, [ className ]) }>
+    <section
+      onScroll={ shouldSaveScrollPosition ? onScrollHandle : undefined }
+      ref={ wrapperRef }
+      className={ classNames(s.pageWrapper, [ className ]) }
+    >
       { children }
       <div ref={ triggerRef } />
     </section>
