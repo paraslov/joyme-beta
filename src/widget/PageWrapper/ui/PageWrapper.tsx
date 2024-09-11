@@ -56,7 +56,7 @@ export const PageWrapper: React.FC<PageWrapperProps> = memo((props: PageWrapperP
       className={ classNames(s.pageWrapper, [ className ]) }
     >
       { children }
-      <div ref={ triggerRef } />
+      { onScrollEnd && <div className={ s.trigger } ref={ triggerRef }/> }
     </section>
   )
 })
