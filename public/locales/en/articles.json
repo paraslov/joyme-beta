@@ -1,5 +1,14 @@
 {
   "title": "Article page title",
+  "sorting": {
+    "sortBy": "Sort by",
+    "direction": "Direction",
+    "createdAt": "Create Date",
+    "title": "Title",
+    "views": "Views",
+    "ascendant": "Ascendant",
+    "descendant": "Descendant"
+  },
   "errors": {
     "fetchArticlesList": "Failed to fetch articles list"
   }

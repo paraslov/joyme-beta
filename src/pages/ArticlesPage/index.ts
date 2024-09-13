@@ -1,3 +1,3 @@
-export { ArticlePageLazy as ArticlePage } from './ui/ArticlePageLazy'
+export { ArticlePageLazy as ArticlePage } from './ui/ArticlePage/ArticlePageLazy'
 
 export { ArticlesPageSchema } from './model/types/articlesPageSchema'

@@ -1,9 +1,12 @@
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { Article, ArticleListViewType } from 'entities/ArticleDetails'
 import { StateSchema } from 'app/providers/StoreProvider'
-import { ArticlesPageSchema } from '../types/articlesPageSchema'
-import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticlesList'
 import { ARTICLE_PAGE_VIEW_TYPE } from 'shared/consts/localStorage'
+import { ArticleSortField } from 'entities/ArticleDetails'
+import { SortOrder } from 'shared/types'
+
+import { ArticlesPageSchema } from '../types/articlesPageSchema'
+import { fetchArticlesList } from '../services/fetchArticlesList'
 
 const articlesAdapter = createEntityAdapter<Article>({
   selectId: (article) => article.id,
@@ -21,6 +24,9 @@ export const articlesPageSlice = createSlice({
     entities: {},
     page: 1,
     hasMore: true,
+    search: '',
+    sort: ArticleSortField.CREATED_AT,
+    order: 'asc',
   }),
   reducers: {
     setView: (state, action: PayloadAction<ArticleListViewType>) => {
@@ -34,7 +40,16 @@ export const articlesPageSlice = createSlice({
     },
     setPage: (state, action: PayloadAction<number>) => {
       state.page = action.payload
-    }
+    },
+    setSort: (state, action: PayloadAction<ArticleSortField>) => {
+      state.sort = action.payload
+    },
+    setOrder: (state, action: PayloadAction<SortOrder>) => {
+      state.order = action.payload
+    },
+    setSearch: (state, action: PayloadAction<string>) => {
+      state.search = action.payload
+    },
   },
   extraReducers: (builder) => {
     builder

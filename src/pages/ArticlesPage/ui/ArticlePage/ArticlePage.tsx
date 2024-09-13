@@ -1,17 +1,17 @@
 import React, { memo, useCallback } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 
-import { ArticleList, ArticleListViewType } from 'entities/ArticleDetails'
+import { ArticleList } from 'entities/ArticleDetails'
 import { ReducersList, useDynamicModuleLoader } from 'shared/lib/DynamicModuleLoader/useDynamicModuleLoader'
-import { articlesPageActions, articlesPageReducer, getArticles } from '../model/slice/articlesPage'
+import { articlesPageReducer, getArticles } from '../../model/slice/articlesPage'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { useSelector } from 'react-redux'
-import { getArticlesErrorMessage, getArticlesIsLoading, getArticlesView } from '../model/selectors/articlesPage'
-import { ArticlesPageViewSelector } from 'features/ArticlesPageViewSelector'
+import { getArticlesErrorMessage, getArticlesIsLoading, getArticlesView } from '../../model/selectors/articlesPage'
 import { PageWrapper } from 'widget/PageWrapper'
-import { fetchNextArticlesPack } from '../model/services/fetchNextArticlesPack'
-import { initArticlesPage } from '../model/services/initArticlesPage'
+import { fetchNextArticlesPack } from '../../model/services/fetchNextArticlesPack'
+import { initArticlesPage } from '../../model/services/initArticlesPage'
+import { ArticlesPageFilters } from 'pages/ArticlesPage/ui/ArticlePageFilters/ArticlesPageFilters'
 
 interface ArticlePageProps {
   className?: string
@@ -41,17 +41,13 @@ const ArticlePage: React.FC<ArticlePageProps> = (props: ArticlePageProps) => {
     dispatch(fetchNextArticlesPack())
   }, [ dispatch ])
 
-  const onViewChange = useCallback((view: ArticleListViewType) => {
-    dispatch(articlesPageActions.setView(view))
-  }, [ dispatch ])
-
   return (
     <PageWrapper
       onScrollEnd={ loadNextArticlesPart }
       className={ classNames('', [ className ]) }
       shouldSaveScrollPosition
     >
-      <ArticlesPageViewSelector view={ viewType } onViewChange={ onViewChange } />
+      <ArticlesPageFilters />
       <ArticleList articles={ articles } isLoading={ isLoading } viewType={ viewType } />
     </PageWrapper>
   )

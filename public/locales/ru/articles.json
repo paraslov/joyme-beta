@@ -1,5 +1,14 @@
 {
   "title": "Статьи",
+  "sorting": {
+    "sortBy": "Сортировать по",
+    "direction": "по",
+    "createdAt": "Дата создания",
+    "title": "Название",
+    "views": "Просмотры",
+    "ascendant": "возрастанию",
+    "descendant": "убыванию"
+  },
   "errors": {
     "fetchArticlesList": "Не удалось загрузить статьи"
   }
